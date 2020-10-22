@@ -99,12 +99,36 @@
                HorizontalAlignment="Center" BorderBrush="Black" Foreground="#FFFF00E8" FontSize="36" FontFamily="Unispace"
                />
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <Label Content="Логин" Foreground="White"/>
-            <TextBox Margin="3" Background="#FF1B316C" Foreground="White" BorderBrush="#FF545C8D"/>
-            <Label Content="Пароль" Foreground="White"/>
-            <TextBox Margin="3" Background="#FF1B316C" Foreground="White" BorderBrush="#FF545C8D"/>
+            <Label Content="Логин" 
+                   Foreground="White"/>
+            <TextBox Margin="3" 
+                     Background="#FF1B316C" 
+                     Foreground="White" 
+                     BorderBrush="#FF545C8D"/>
+            <Label Content="Пароль" 
+                   Foreground="White"/>
+            <TextBox Margin="3" 
+                     Background="#FF1B316C" 
+                     Foreground="White" 
+                     BorderBrush="#FF545C8D"/>
             <Button Content="Войти"
-                    Margin="0,5,5,5" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="77.78" Foreground="White" BorderBrush="#FF557793" Style="{DynamicResource StartButtonStyle}" Background="#FF3D4470"/>
+                    Margin="0,5,5,5" 
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Bottom" 
+                    Width="77.78" 
+                    Foreground="White" 
+                    BorderBrush="#FF557793" 
+                    Style="{DynamicResource StartButtonStyle}" 
+                    Background="#FF3D4470"/>
         </StackPanel>
+        <Button Grid.Column="2" 
+                Grid.Row="3"
+                Content="Зарегистрироваться"
+                Style="{DynamicResource StartButtonStyle}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom" 
+                Background="#FF5D5DAA" 
+                Foreground="White" 
+                BorderBrush="#FF7F50E6"/>
     </Grid>
 </Window>
