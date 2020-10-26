@@ -1,0 +1,51 @@
+﻿<Page x:Class="SportClubDB.LogInPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportClubDB"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LogInPage">
+    <Grid Background="#FF3D4470">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1"
+               Grid.Column="1"
+               Content="Sport Club"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center" BorderBrush="Black" Foreground="#FFFF00E8" FontSize="36" FontFamily="Unispace"
+               />
+            <StackPanel Grid.Row="2" Grid.Column="1">
+                <Label Content="Логин" 
+                   Foreground="White"/>
+                <TextBox Style="{DynamicResource TextBoxStyle}"/>
+                <Label Content="Пароль" 
+                   Foreground="White"/>
+                <TextBox Style="{DynamicResource TextBoxStyle}"/>
+                <Button Content="Войти"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Bottom" 
+                    Width="77.78"  
+                    BorderBrush="#FF557793" 
+                    Style="{DynamicResource StartButtonStyle}" 
+                    Background="#FF3D4470"/>
+            </StackPanel>
+            <Button Grid.Column="2" 
+                Grid.Row="3"
+                Content="Зарегистрироваться"
+                Style="{DynamicResource StartButtonStyle}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"  
+                Click="OpenSingUpPage"/>
+        </Grid>
+</Page>

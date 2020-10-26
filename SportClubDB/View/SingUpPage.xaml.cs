@@ -16,15 +16,18 @@ using System.Windows.Shapes;
 namespace SportClubDB
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SingUpPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SingUpPage : Page
     {
-        public MainWindow()
+        public SingUpPage()
         {
             InitializeComponent();
-            MainFrame.Navigate(new LogInPage());
         }
 
+        private void CloseSingUpPage(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
