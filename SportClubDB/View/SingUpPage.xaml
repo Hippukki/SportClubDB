@@ -67,7 +67,7 @@
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
                 Click="CloseSingUpPage"/>
-        <Ellipse Grid.Row="1" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="Black" StrokeThickness="2">
+        <Ellipse Grid.Row="1" Width="180" Height="180" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="Gray" StrokeThickness="2">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="DefaultImage.png"/>
             </Ellipse.Fill>

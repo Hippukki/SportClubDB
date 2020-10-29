@@ -13,7 +13,16 @@ namespace SportClubDB
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string Post { get; set; }
+        public Post Post { get; set; }
         public ImageSource Photo { get; set; }
+
+        public void CreateAdmin()
+        {
+            string add;
+        }
+        public void RemoveAdmin()
+        {
+            string remove;
+        }
     }
 }
