@@ -23,11 +23,13 @@ namespace SportClubDB
         public SingUpPage()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void CloseSingUpPage(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
+
     }
 }
