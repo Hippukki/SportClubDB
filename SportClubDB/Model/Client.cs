@@ -17,12 +17,13 @@ namespace SportClubDB
         public Post Post { get; set; }
         public Trainer Trainer { get; set; }
         public DateTime Created { get; set; }
+        public Phone Phone { get; set; }
 
         public void CreateClient()
         {
             string add = "Insert Into client" +
-                   "(id, name, surname, id_post, id_trainer, created) " +
-                   "Values(0, '" + Name + "', '" + Surname + "', '" + Post.ID + "', '"+Trainer.ID+"' '" + DateTime.Now + "')";
+                   "(id, name, surname, id_post, id_trainer, created, id_phone) " +
+                   "Values(0, '" + Name + "', '" + Surname + "', '" + Post.ID + "', '"+Trainer.ID+"', '" + DateTime.Now + "','"+Phone.ID+"')";
             MySqlCommand(add);
         }
         public void RemoveClient()
@@ -35,7 +36,8 @@ namespace SportClubDB
             string update = "Update client Set name = '" + Name + "', " +
                 "surname = '" + Surname + "', " +
                 "id_post = '" + Post.ID + "', " +
-                "id_trainer = '" + Trainer.ID + "' Where id = '" + ID + "'";
+                "id_trainer = '" + Trainer.ID + "'" +
+                "id_phone = '"+ Phone.ID +"' Where id = '" + ID + "'";
             MySqlCommand(update);
         }
         public List<Client> GetClients()
@@ -52,14 +54,17 @@ namespace SportClubDB
                         trainer.ID = dr.GetInt32("id_trainer");
                         Post post = new Post();
                         post.ID = dr.GetInt32("id_post");
+                        Phone phone = new Phone();
+                        phone.ID = dr.GetInt32("id_phone");
                         clients.Add(new Client
                         {
                             ID = dr.GetInt32("id"),
                             Name = dr.GetString("name"),
-                            Surname = dr.GetString("name"),
+                            Surname = dr.GetString("surname"),
                             Post = post,
                             Trainer = trainer,
-                            Created = dr.GetDateTime("created")
+                            Created = dr.GetDateTime("created"),
+                            Phone = phone
                         });
                     }
                 CloseConnection();

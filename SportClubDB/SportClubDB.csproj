@@ -77,9 +77,15 @@
     </ApplicationDefinition>
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\DB.cs" />
+    <Compile Include="Model\Phone.cs" />
     <Compile Include="Model\Post.cs" />
+    <Compile Include="ViewModel\BaseNotifyClass.cs" />
+    <Compile Include="ViewModel\Command.cs" />
     <Compile Include="View\LogInPage.xaml.cs">
       <DependentUpon>LogInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SingUpPage.xaml.cs">
       <DependentUpon>SingUpPage.xaml</DependentUpon>
@@ -90,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LogInPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -142,8 +152,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

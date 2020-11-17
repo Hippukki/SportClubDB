@@ -18,12 +18,13 @@ namespace SportClubDB
         public Post Post { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public Phone Phone { get; set; }
 
         public void CreateAdmin()
         {
             string add = "Insert Into administrator" +
-                   "(id, name, surname, id_post, login, password) " +
-                   "Values(0, '"+Name+"', '"+Surname+"', '"+Post.ID+"', '"+Login+"', '"+Password+"')";
+                   "(id, name, surname, id_post, login, password, id_phone) " +
+                   "Values(0, '"+Name+"', '"+Surname+"', '"+Post.ID+"', '"+Login+"', '"+Password+"', '"+Phone.ID+"')";
             MySqlCommand(add);
         }
         public void RemoveAdmin()
@@ -37,7 +38,8 @@ namespace SportClubDB
                 "surname = '"+Surname+ "', " +
                 "id_post = '" + Post.ID + "', " +
                 "login = '" + Login + "', " +
-                "password = '" + Password + "' Where id = '"+ID+"'";
+                "password = '" + Password + "'" +
+                "id_phone = '"+Phone.ID+"' Where id = '"+ID+"'";
             MySqlCommand(update);
         }
         public List<Admin> GetAdmins()
@@ -51,14 +53,17 @@ namespace SportClubDB
                     while (dr.Read())
                     {
                         Post post = new Post();
+                        Phone phone = new Phone();
                         post.ID = dr.GetInt32("id_post");
+                        phone.ID = dr.GetInt32("id_phone");
                         admins.Add(new Admin
                         {
                             ID = dr.GetInt32("id"),
                             Name = dr.GetString("name"),
-                            Surname = dr.GetString("name"),
-                            Post = post
-                        });
+                            Surname = dr.GetString("surname"),
+                            Post = post,
+                            Phone = phone
+                        }) ;
                     }
                 CloseConnection();
             }
