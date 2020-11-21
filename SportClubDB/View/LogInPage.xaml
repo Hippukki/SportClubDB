@@ -38,7 +38,8 @@
                     Width="77.78"  
                     BorderBrush="#FF557793" 
                     Style="{DynamicResource StartButtonStyle}" 
-                    Background="#FF3D4470"/>
+                    Background="#FF3D4470"
+                    Click="OpenMainPage"/>
             </StackPanel>
             <Button Grid.Column="2" 
                 Grid.Row="3"

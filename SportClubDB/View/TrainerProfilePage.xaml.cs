@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace SportClubDB
 {
     /// <summary>
-    /// Логика взаимодействия для LogInPage.xaml
+    /// Логика взаимодействия для TrainerProfilePage.xaml
     /// </summary>
-    public partial class LogInPage : Page
+    public partial class TrainerProfilePage : Page
     {
-        public LogInPage()
+        public TrainerProfilePage()
         {
             InitializeComponent();
-        }
-
-        private void OpenSingUpPage(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new SingUpPage());
-        }
-
-        private void OpenMainPage(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new TrainerMainPage());
         }
     }
 }
