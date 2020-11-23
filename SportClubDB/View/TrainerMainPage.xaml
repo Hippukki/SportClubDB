@@ -23,17 +23,24 @@
                BorderBrush="Black" 
                Foreground="#FFFF00E8" 
                FontSize="20" 
-               FontFamily="Unispace"/>
-        <StackPanel Grid.Row="1" Grid.Column="0">
+               FontFamily="Unispace" Background="#FF2A2559"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="#FF2A2559">
             <Button Content="Мои клиенты"
                     Style="{DynamicResource StartButtonStyle}"
                     Click="OpenClientsDataGrid"/>
             <Button Content="График"
-                    Style="{DynamicResource StartButtonStyle}"/>
+                    Style="{DynamicResource StartButtonStyle}"
+                    Click="OpenTrainerSchedulePage"/>
         </StackPanel>
-        <Menu Grid.Row="0" Grid.Column="1">
+        
+        <Button Content="Выход"
+                Style="{DynamicResource StartButtonStyle}"
+                Grid.Row="1"
+                VerticalAlignment="Bottom"/>
+        
+        <Menu Grid.Row="0" Grid.Column="1" Background="#FF2A2559">
             <MenuItem Header="Редактировать профиль"
-                      Click="OpenTrainerProfilePage"/>
+                      Click="OpenTrainerProfilePage" Foreground="White" Padding="6" Background="#FF6256D8" Margin="2"/>
         </Menu>
         <Frame 
             x:Name="SecondaryFrame" 

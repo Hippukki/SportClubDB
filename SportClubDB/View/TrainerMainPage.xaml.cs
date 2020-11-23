@@ -34,5 +34,10 @@ namespace SportClubDB
         {
             SecondaryFrame.Navigate(new TrainerProfilePage());
         }
+
+        private void OpenTrainerSchedulePage(object sender, RoutedEventArgs e)
+        {
+            SecondaryFrame.Navigate(new TrainerSchedulePage());
+        }
     }
 }

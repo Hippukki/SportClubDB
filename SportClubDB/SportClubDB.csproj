@@ -97,6 +97,9 @@
     <Compile Include="View\TrainerProfilePage.xaml.cs">
       <DependentUpon>TrainerProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TrainerSchedulePage.xaml.cs">
+      <DependentUpon>TrainerSchedulePage.xaml</DependentUpon>
+    </Compile>
     <Page Include="Resources\StartButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TrainerProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrainerSchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

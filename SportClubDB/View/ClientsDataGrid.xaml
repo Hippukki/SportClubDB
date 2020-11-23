@@ -7,17 +7,31 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ClientsDataGrid">
-
+    
     <Grid>
-        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"/>
-                <DataGridTextColumn Header="Имя"/>
-                <DataGridTextColumn Header="Фамилия"/>
-                <DataGridTextColumn Header="Дата добавления"/>
-                <DataGridTextColumn Header="Телефон"/>
-                <DataGridTextColumn Header="График занятий"/>
+                <DataGridTextColumn Header="ID" Foreground="White"/>
+                <DataGridTextColumn Header="Имя" Foreground="White"/>
+                <DataGridTextColumn Header="Фамилия" Foreground="White"/>
+                <DataGridTextColumn Header="Дата добавления" Foreground="White"/>
+                <DataGridTextColumn Header="Телефон" Foreground="White"/>
+                <DataGridTextColumn Header="График занятий" Foreground="White"/>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBox Text="Поиск..." 
+                 Style="{DynamicResource TextBoxStyle}"
+                 Padding="5"/>
+        <Button Content="Искать"
+                Style="{DynamicResource StartButtonStyle}"
+                Grid.Column="1"/>
     </Grid>
 </Page>

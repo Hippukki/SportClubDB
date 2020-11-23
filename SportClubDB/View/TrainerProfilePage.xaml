@@ -9,7 +9,17 @@
       Title="TrainerProfilePage">
 
     <Grid Background="#FF3D4470">
-        <StackPanel VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">
             <Label Content="Имя"
                    Foreground="White"/>
             <TextBox Style="{DynamicResource TextBoxStyle}"/>
@@ -25,10 +35,12 @@
             <Label Content="Телефон"
                    Foreground="White"/>
             <TextBox Style="{DynamicResource TextBoxStyle}"/>
-            <Button Content="Сохранить"
-                Style="{DynamicResource StartButtonStyle}"
-                    />
+            
         </StackPanel>
+        <Button Content="Сохранить"
+                Style="{DynamicResource StartButtonStyle}"
+                Grid.Row="2"
+                Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         
     </Grid>
 </Page>
