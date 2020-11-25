@@ -27,20 +27,25 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Background="#FF2A2559">
             <Button Content="Мои клиенты"
                     Style="{DynamicResource StartButtonStyle}"
-                    Click="OpenClientsDataGrid"/>
+                    Command="{Binding OpenClients}"/>
             <Button Content="График"
                     Style="{DynamicResource StartButtonStyle}"
-                    Click="OpenTrainerSchedulePage"/>
+                    Command="{Binding OpenSchedule}"/>
         </StackPanel>
         
         <Button Content="Выход"
                 Style="{DynamicResource StartButtonStyle}"
                 Grid.Row="1"
-                VerticalAlignment="Bottom"/>
+                VerticalAlignment="Bottom"
+                Command="{Binding Exit}"/>
         
         <Menu Grid.Row="0" Grid.Column="1" Background="#FF2A2559">
             <MenuItem Header="Редактировать профиль"
-                      Click="OpenTrainerProfilePage" Foreground="White" Padding="6" Background="#FF6256D8" Margin="2"/>
+                      Foreground="White" Padding="6" Background="#FF6256D8" Margin="2"
+                      Command="{Binding OpenEditTrainer}"/>
+            <MenuItem Header="Добавить клиента"
+                      Foreground="White" Padding="6" Background="#FF6256D8" Margin="2" 
+                      Command="{Binding OpenCreateClient}"/>
         </Menu>
         <Frame 
             x:Name="SecondaryFrame" 

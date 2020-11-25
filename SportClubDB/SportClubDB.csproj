@@ -81,8 +81,14 @@
     <Compile Include="Model\Post.cs" />
     <Compile Include="ViewModel\BaseNotifyClass.cs" />
     <Compile Include="ViewModel\Command.cs" />
+    <Compile Include="ViewModel\SimpleCommand.cs" />
+    <Compile Include="ViewModel\ViewModelAddClient.cs" />
+    <Compile Include="ViewModel\ViewModelTrainerMain.cs" />
     <Compile Include="View\ClientsDataGrid.xaml.cs">
       <DependentUpon>ClientsDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateClientPage.xaml.cs">
+      <DependentUpon>CreateClientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LogInPage.xaml.cs">
       <DependentUpon>LogInPage.xaml</DependentUpon>
@@ -105,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ClientsDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

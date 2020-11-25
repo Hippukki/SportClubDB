@@ -26,6 +26,12 @@
                 <DataGridTextColumn Header="Телефон" Foreground="White"/>
                 <DataGridTextColumn Header="График занятий" Foreground="White"/>
             </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Редактировать"/>
+                    <MenuItem Header="Удалить"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
         <TextBox Text="Поиск..." 
                  Style="{DynamicResource TextBoxStyle}"

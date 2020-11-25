@@ -38,6 +38,9 @@
             <Label Content="Пароль"
                    Foreground="White"/>
             <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <Label Content="Телефон"
+                   Foreground="White"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}"/>
         </StackPanel>
         <CheckBox Grid.Row="2" 
                   Grid.Column="1" 

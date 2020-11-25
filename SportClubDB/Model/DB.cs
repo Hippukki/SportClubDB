@@ -10,7 +10,7 @@ namespace SportClubDB
 {
     public class DB
     {
-        protected static MySqlConnection connection = null;
+        public static MySqlConnection connection = null;
         static DB()
         {
             MySqlConnectionStringBuilder sb = new MySqlConnectionStringBuilder();

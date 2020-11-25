@@ -16,14 +16,14 @@ using System.Windows.Shapes;
 namespace SportClubDB
 {
     /// <summary>
-    /// Логика взаимодействия для TrainerMainPage.xaml
+    /// Логика взаимодействия для CreateClientPage.xaml
     /// </summary>
-    public partial class TrainerMainPage : Page
+    public partial class CreateClientPage : Page
     {
-        public TrainerMainPage()
+        public CreateClientPage(ViewModelAddClient view)
         {
             InitializeComponent();
-            DataContext = new ViewModelTrainerMain(SecondaryFrame);
+            DataContext = view;
         }
     }
 }

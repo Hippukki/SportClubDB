@@ -23,7 +23,7 @@ namespace SportClubDB
         {
             string add = "Insert Into client" +
                    "(id, name, surname, id_post, id_trainer, created, id_phone) " +
-                   "Values(0, '" + Name + "', '" + Surname + "', '" + Post.ID + "', '"+Trainer.ID+"', '" + DateTime.Now + "','"+Phone.ID+"')";
+                   "Values(0, '" + Name + "', '" + Surname + "', 3, '"+Trainer.ID+"', '" + DateTime.Now + "','"+Phone.ID+"')";
             MySqlCommand(add);
         }
         public void RemoveClient()
@@ -34,8 +34,7 @@ namespace SportClubDB
         public void UpdateClient()
         {
             string update = "Update client Set name = '" + Name + "', " +
-                "surname = '" + Surname + "', " +
-                "id_post = '" + Post.ID + "', " +
+                "surname = '" + Surname + "'" +
                 "id_trainer = '" + Trainer.ID + "'" +
                 "id_phone = '"+ Phone.ID +"' Where id = '" + ID + "'";
             MySqlCommand(update);
