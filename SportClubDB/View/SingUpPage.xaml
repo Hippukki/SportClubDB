@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SingUpPage">
 
-    <Grid Background="#FF3D4470">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -28,42 +28,27 @@
         <StackPanel Grid.Column="1" Grid.Row="1">
             <Label Content="Имя"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Name}"/>
             <Label Content="Фамилия"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Surname}"/>
             <Label Content="Логин"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Login}"/>
             <Label Content="Пароль"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Password}"/>
             <Label Content="Телефон"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Number}"/>
         </StackPanel>
-        <CheckBox Grid.Row="2" 
-                  Grid.Column="1" 
-                  Content="Администратор" 
-                  VerticalAlignment="Top" 
-                  HorizontalAlignment="Left"
-                  Foreground="White"
-                  Margin="5"
-                  Background="LightPink"/>
-        <CheckBox Grid.Row="2" 
-                  Grid.Column="1" 
-                  Content="Тренер" 
-                  VerticalAlignment="Top" 
-                  HorizontalAlignment="Right"
-                  Foreground="White"
-                  Margin="5"
-                  Background="LightPink"/>
         <Button Grid.Column="2" 
                 Grid.Row="2"
                 Content="Зарегистрироваться"
                 Style="{DynamicResource StartButtonStyle}"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Bottom"
-                Click="CloseSingUpPage"/>
+                Click="CloseSingUpPage"
+                Command="{Binding AddUser}"/>
     </Grid>
 </Page>

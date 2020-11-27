@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportClubDB"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" x:Name="Window">
     <Window.Resources>
        
     </Window.Resources>
-    <Grid>
+    <Grid Background="#FF3D4470">
         <Frame 
             x:Name="MainFrame" 
             NavigationUIVisibility="Hidden"
+            
         />
     </Grid>
 </Window>

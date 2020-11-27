@@ -15,16 +15,16 @@ namespace SportClubDB
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public Post Post { get; set; }
+        public int IdPost { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public Phone Phone { get; set; }
+        public int IdPhone { get; set; }
 
         public void CreateAdmin()
         {
             string add = "Insert Into administrator" +
                    "(id, name, surname, id_post, login, password, id_phone) " +
-                   "Values(0, '"+Name+"', '"+Surname+"', '"+Post.ID+"', '"+Login+"', '"+Password+"', '"+Phone.ID+"')";
+                   "Values(0, '"+Name+"', '"+Surname+"', 1, '"+Login+"', '"+Password+"', '"+IdPhone+"')";
             MySqlCommand(add);
         }
         public void RemoveAdmin()
@@ -35,11 +35,10 @@ namespace SportClubDB
         public void UpdateAdmin()
         {
             string update = "Update administrator Set name = '"+Name+"', " +
-                "surname = '"+Surname+ "', " +
-                "id_post = '" + Post.ID + "', " +
+                "surname = '"+Surname+ "',  " +
                 "login = '" + Login + "', " +
                 "password = '" + Password + "'" +
-                "id_phone = '"+Phone.ID+"' Where id = '"+ID+"'";
+                "id_phone = '"+IdPhone+"' Where id = '"+ID+"'";
             MySqlCommand(update);
         }
         public List<Admin> GetAdmins()
@@ -52,17 +51,13 @@ namespace SportClubDB
                 using (var dr = mc.ExecuteReader())
                     while (dr.Read())
                     {
-                        Post post = new Post();
-                        Phone phone = new Phone();
-                        post.ID = dr.GetInt32("id_post");
-                        phone.ID = dr.GetInt32("id_phone");
                         admins.Add(new Admin
                         {
                             ID = dr.GetInt32("id"),
                             Name = dr.GetString("name"),
                             Surname = dr.GetString("surname"),
-                            Post = post,
-                            Phone = phone
+                            IdPost = dr.GetInt32("id_post"),
+                            IdPhone = dr.GetInt32("id_phone")
                         }) ;
                     }
                 CloseConnection();

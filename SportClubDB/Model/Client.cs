@@ -14,16 +14,16 @@ namespace SportClubDB
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public Post Post { get; set; }
-        public Trainer Trainer { get; set; }
+        public int IdPost { get; set; }
+        public int IdTrainer { get; set; }
         public DateTime Created { get; set; }
-        public Phone Phone { get; set; }
+        public int IdPhone { get; set; }
 
         public void CreateClient()
         {
             string add = "Insert Into client" +
                    "(id, name, surname, id_post, id_trainer, created, id_phone) " +
-                   "Values(0, '" + Name + "', '" + Surname + "', 3, '"+Trainer.ID+"', '" + DateTime.Now + "','"+Phone.ID+"')";
+                   "Values(0, '" + Name + "', '" + Surname + "', 3, "+IdTrainer+ ", '"+DateTime.Now+"'," + IdPhone+")";
             MySqlCommand(add);
         }
         public void RemoveClient()
@@ -35,8 +35,8 @@ namespace SportClubDB
         {
             string update = "Update client Set name = '" + Name + "', " +
                 "surname = '" + Surname + "'" +
-                "id_trainer = '" + Trainer.ID + "'" +
-                "id_phone = '"+ Phone.ID +"' Where id = '" + ID + "'";
+                "id_trainer = '" + IdTrainer + "'" +
+                "id_phone = '"+ IdPhone + "' Where id = '" + ID + "'";
             MySqlCommand(update);
         }
         public List<Client> GetClients()
@@ -49,21 +49,15 @@ namespace SportClubDB
                 using (var dr = mc.ExecuteReader())
                     while (dr.Read())
                     {
-                        Trainer trainer = new Trainer();
-                        trainer.ID = dr.GetInt32("id_trainer");
-                        Post post = new Post();
-                        post.ID = dr.GetInt32("id_post");
-                        Phone phone = new Phone();
-                        phone.ID = dr.GetInt32("id_phone");
                         clients.Add(new Client
                         {
                             ID = dr.GetInt32("id"),
                             Name = dr.GetString("name"),
                             Surname = dr.GetString("surname"),
-                            Post = post,
-                            Trainer = trainer,
+                            IdPost = dr.GetInt32("id_post"),
+                            IdTrainer = dr.GetInt32("id_trainer"),
                             Created = dr.GetDateTime("created"),
-                            Phone = phone
+                            IdPhone = dr.GetInt32("id_phone")
                         });
                     }
                 CloseConnection();
@@ -76,7 +70,7 @@ namespace SportClubDB
             List<Client> result = new List<Client>();
             foreach( Client client in clients)
             {
-                if(client.Trainer.ID == trainer)
+                if(client.IdTrainer == trainer)
                 {
                     result.Add(client);
                 }                  

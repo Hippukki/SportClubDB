@@ -34,6 +34,6 @@
                 Content="Создать"
                 Style="{DynamicResource StartButtonStyle}"
                 VerticalAlignment="Bottom"
-                Command="{Binding CraeteClient}"/>
+                Command="{Binding CreateClient}"/>
     </Grid>
 </Page>

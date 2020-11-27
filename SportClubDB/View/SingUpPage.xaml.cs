@@ -20,10 +20,11 @@ namespace SportClubDB
     /// </summary>
     public partial class SingUpPage : Page
     {
-        public SingUpPage()
+        public SingUpPage(object user)
         {
             InitializeComponent();
-            DataContext = this;
+            DataContext = user;
+
         }
 
         private void CloseSingUpPage(object sender, RoutedEventArgs e)

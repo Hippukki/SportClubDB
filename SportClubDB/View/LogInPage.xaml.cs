@@ -25,14 +25,19 @@ namespace SportClubDB
             InitializeComponent();
         }
 
-        private void OpenSingUpPage(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new SingUpPage());
-        }
-
         private void OpenMainPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new TrainerMainPage());
+        }
+
+        //private void UserSelectionPage(object sender, RoutedEventArgs e)
+        //{
+        //    NavigationService.Navigate(new UserSelectionPage());
+        //}
+
+        private void UserSelectionWindow(object sender, RoutedEventArgs e)
+        {
+            new UserSelectionWindow(this).ShowDialog();
         }
     }
 }

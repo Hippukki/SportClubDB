@@ -11,7 +11,8 @@ namespace SportClubDB
         Client client;
         public string Name { get; set; }
         public string Surname { get; set; }
-        public Phone phone { get; set; }
+        public Phone Phone { get; set; }
+        public int IdPhone { get; set; }
         public string Number { get; set; }
 
         public SimpleCommand CreateClient { get; set; }
@@ -21,11 +22,12 @@ namespace SportClubDB
             this.client = client;
             client.Name = Name;
             client.Surname = Surname;
-            phone = new Phone();
-            phone.Number = Number;
-            client.Phone = phone;
+            Phone = new Phone();
+            Phone.Number = Number;
+            client.IdPhone = Phone.ID;
             CreateClient = new SimpleCommand(() =>
             {
+                Phone.CreatePhone();
                 client.CreateClient();
             });
         }
