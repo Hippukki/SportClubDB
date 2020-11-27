@@ -16,7 +16,7 @@ namespace SportClubDB
         public SimpleCommand OpenEditTrainer { get; set; }
         public SimpleCommand OpenSchedule { get; set; }
 
-        public ViewModelTrainerMain( Frame frame)
+        public ViewModelTrainerMain( Frame frame, object user)
         {
             this.frame = frame;
             OpenClients = new SimpleCommand(() =>

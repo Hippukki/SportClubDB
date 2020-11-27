@@ -86,6 +86,7 @@
     <Compile Include="ViewModel\ViewModelAddClient.cs" />
     <Compile Include="ViewModel\ViewModelAddTrainer.cs" />
     <Compile Include="ViewModel\ViewModelTrainerMain.cs" />
+    <Compile Include="ViewModel\ViewModelUserLogIn.cs" />
     <Compile Include="View\ClientsDataGrid.xaml.cs">
       <DependentUpon>ClientsDataGrid.xaml</DependentUpon>
     </Compile>

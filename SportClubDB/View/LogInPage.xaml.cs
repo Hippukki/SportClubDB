@@ -20,20 +20,16 @@ namespace SportClubDB
     /// </summary>
     public partial class LogInPage : Page
     {
-        public LogInPage()
+        public LogInPage(ViewModelUserLogIn view)
         {
             InitializeComponent();
+            DataContext = view;
         }
 
         private void OpenMainPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new TrainerMainPage());
         }
-
-        //private void UserSelectionPage(object sender, RoutedEventArgs e)
-        //{
-        //    NavigationService.Navigate(new UserSelectionPage());
-        //}
 
         private void UserSelectionWindow(object sender, RoutedEventArgs e)
         {

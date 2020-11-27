@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace SportClubDB
@@ -58,12 +59,39 @@ namespace SportClubDB
                             Surname = dr.GetString("surname"),
                             IdClient = dr.GetInt32("id_client"),
                             IdPost = dr.GetInt32("id_post"),
-                            IdPhone = dr.GetInt32("id_phone")
+                            IdPhone = dr.GetInt32("id_phone"),
+                            Login = dr.GetString("login"),
+                            Password = dr.GetString("password")
                         });
                     }
                 CloseConnection();
             }
             return trainers;
+        }
+        public List<Trainer> GetTrainersByLogin(string value)
+        {
+            List<Trainer> trainers = GetTrainers();
+            List<Trainer> result = new List<Trainer>();
+
+            foreach (Trainer trainer in trainers)
+            {
+                if (trainer.Login == value)
+                    result.Add(trainer);
+            }
+            return result;
+        }
+        public Trainer GetTrainerByLoginAndPassword(string login, string password)
+        {
+            Trainer trueTrainer = new Trainer();
+            List<Trainer> trainers = GetTrainersByLogin(login);
+            foreach (Trainer trainer in trainers)
+            {
+                if (trainer.Password == password)
+                    trueTrainer = trainer;
+                else
+                    MessageBox.Show("Пароль или логин были введены нееверно. Пожалуйста повторите попытку.");
+            }
+            return trueTrainer;
         }
     }
 }
