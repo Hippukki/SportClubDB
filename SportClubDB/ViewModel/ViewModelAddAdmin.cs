@@ -21,7 +21,6 @@ namespace SportClubDB
 
         public ViewModelAddAdmin()
         {
-            
             AddUser = new SimpleCommand(() =>
             {
                 admin = new Admin();

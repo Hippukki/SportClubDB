@@ -28,10 +28,12 @@
             <StackPanel Grid.Row="2" Grid.Column="1">
                 <Label Content="Логин" 
                    Foreground="White"/>
-                <TextBox Style="{DynamicResource TextBoxStyle}"/>
+                <TextBox Style="{DynamicResource TextBoxStyle}"
+                         Text="{Binding Login}"/>
                 <Label Content="Пароль" 
                    Foreground="White"/>
-                <TextBox Style="{DynamicResource TextBoxStyle}"/>
+                <TextBox Style="{DynamicResource TextBoxStyle}"
+                         Text="{Binding Password}"/>
                 <Button Content="Войти"
                     HorizontalAlignment="Right" 
                     VerticalAlignment="Bottom" 
@@ -39,7 +41,7 @@
                     BorderBrush="#FF557793" 
                     Style="{DynamicResource StartButtonStyle}" 
                     Background="#FF3D4470"
-                    Click="OpenMainPage"/>
+                    Command="{Binding LogIn}"/>
             </StackPanel>
             <Button Grid.Column="2" 
                 Grid.Row="3"

@@ -16,20 +16,14 @@ using System.Windows.Shapes;
 namespace SportClubDB
 {
     /// <summary>
-    /// Логика взаимодействия для LogInPage.xaml
+    /// Логика взаимодействия для AdminMainPage.xaml
     /// </summary>
-    public partial class LogInPage : Page
+    public partial class AdminMainPage : Page
     {
-        public LogInPage(ViewModelUserLogIn view)
+        public AdminMainPage(ViewModelAdminMain view)
         {
             InitializeComponent();
             DataContext = view;
-        }
-
-
-        private void UserSelectionWindow(object sender, RoutedEventArgs e)
-        {
-            new UserSelectionWindow(this).ShowDialog();
         }
     }
 }

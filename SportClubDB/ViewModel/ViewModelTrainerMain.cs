@@ -9,34 +9,35 @@ namespace SportClubDB
 {
     public class ViewModelTrainerMain : BaseNotifyClass
     {
-        public Frame frame; 
+        private Page currentPage;
 
         public SimpleCommand OpenClients { get; set; }
         public SimpleCommand OpenCreateClient { get; set; }
         public SimpleCommand OpenEditTrainer { get; set; }
         public SimpleCommand OpenSchedule { get; set; }
+        public Page CurrentPage { get => currentPage; set { currentPage = value; RaiseProperty(); } }
 
-        public ViewModelTrainerMain( Frame frame, object user)
+        public ViewModelTrainerMain( object user)
         {
-            this.frame = frame;
+            user = new Trainer();
             OpenClients = new SimpleCommand(() =>
             {
-                frame.Navigate(new ClientsDataGrid());
+                CurrentPage = new ClientsDataGrid();
             });
 
             OpenCreateClient = new SimpleCommand(() =>
             {
-                frame.Navigate(new CreateClientPage(new ViewModelAddClient(new Client())));
+                CurrentPage = new CreateClientPage(new ViewModelAddClient(new Client()));
             });
 
             OpenEditTrainer = new SimpleCommand(() =>
             {
-                frame.Navigate(new TrainerProfilePage());
+                 CurrentPage = new TrainerProfilePage();
             });
 
             OpenSchedule = new SimpleCommand(() =>
             {
-                frame.Navigate(new TrainerSchedulePage());
+                 CurrentPage = new TrainerSchedulePage();
             });
 
         }

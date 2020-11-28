@@ -23,7 +23,7 @@ namespace SportClubDB
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new LogInPage(new ViewModelUserLogIn(MainFrame)));
+            MainFrame.Navigate(new LogInPage(new ViewModelUserLogIn()));
         }
 
     }
