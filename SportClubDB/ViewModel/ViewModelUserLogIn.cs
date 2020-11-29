@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace SportClubDB
@@ -21,16 +22,18 @@ namespace SportClubDB
 
         public ViewModelUserLogIn()
         {
-            trainer = new Trainer().GetTrainerByLoginAndPassword(Login, Password);
-            admin = new Admin().GetAdminByLoginAndPassword(Login, Password);
-            var user = CompareUsers(admin, trainer);
+            
 
             LogIn = new SimpleCommand(() =>
             {
+                trainer = new Trainer().GetTrainerByLoginAndPassword(Login, Password);
+                admin = new Admin().GetAdminByLoginAndPassword(Login, Password);
+                CheckNull(admin, trainer);
+                var user = CompareUsers(admin, trainer);
                 if (user == admin)
                     CurrentPage = new AdminMainPage(new ViewModelAdminMain(user));
-                else if (user == trainer)
-                    CurrentPage = new TrainerMainPage( new ViewModelTrainerMain(user));
+                else
+                    CurrentPage = new TrainerMainPage(new ViewModelTrainerMain(user));
 
             });
         }
@@ -41,6 +44,17 @@ namespace SportClubDB
                 return admin;
             else
                 return trainer;
+        }
+        public void CheckNull(Admin admin, Trainer trainer)
+        {
+            if(admin.Login != Login)
+            {
+                if(trainer.Login != Login)
+                {
+                  MessageBox.Show("Такого пользователя не существует!");
+                }
+            }
+                
         }
 
     }

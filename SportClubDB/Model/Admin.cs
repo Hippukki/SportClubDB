@@ -88,7 +88,7 @@ namespace SportClubDB
                 if (admin.Password == password)
                     trueAdmin = admin;
                 else
-                    MessageBox.Show("Пароль или логин были введены нееверно. Пожалуйста повторите попытку.");
+                    MessageBox.Show("Пароль был введен неверно. Пожалуйста повторите попытку.");
             }
             return trueAdmin;
         }

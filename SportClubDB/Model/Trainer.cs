@@ -57,7 +57,6 @@ namespace SportClubDB
                             ID = dr.GetInt32("id"),
                             Name = dr.GetString("name"),
                             Surname = dr.GetString("surname"),
-                            IdClient = dr.GetInt32("id_client"),
                             IdPost = dr.GetInt32("id_post"),
                             IdPhone = dr.GetInt32("id_phone"),
                             Login = dr.GetString("login"),
@@ -89,7 +88,7 @@ namespace SportClubDB
                 if (trainer.Password == password)
                     trueTrainer = trainer;
                 else
-                    MessageBox.Show("Пароль или логин были введены нееверно. Пожалуйста повторите попытку.");
+                    MessageBox.Show("Пароль был введен неверно. Пожалуйста повторите попытку.");
             }
             return trueTrainer;
         }
