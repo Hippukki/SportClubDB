@@ -47,12 +47,9 @@ namespace SportClubDB
         }
         public void CheckNull(Admin admin, Trainer trainer)
         {
-            if(admin.Login != Login)
+            if(admin.Login != Login && trainer.Login != Login)
             {
-                if(trainer.Login != Login)
-                {
-                  MessageBox.Show("Такого пользователя не существует!");
-                }
+                MessageBox.Show("Такого пользователя не существует!");
             }
                 
         }
