@@ -25,7 +25,7 @@ namespace SportClubDB
         {
             string add = "Insert Into administrator" +
                    "(id, name, surname, id_post, login, password, id_phone) " +
-                   "Values(0, '"+Name+"', '"+Surname+"', 1, '"+Login+"', '"+Password+"', '"+IdPhone+"')";
+                   "Values(0, '"+Name+"', '"+Surname+"', 1, '"+Login+"', '"+Password+"', "+IdPhone+")";
             MySqlCommand(add);
         }
         public void RemoveAdmin()

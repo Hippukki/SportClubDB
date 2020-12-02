@@ -57,6 +57,7 @@
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -86,10 +87,14 @@
     <Compile Include="ViewModel\ViewModelAddClient.cs" />
     <Compile Include="ViewModel\ViewModelAddTrainer.cs" />
     <Compile Include="ViewModel\ViewModelAdminMain.cs" />
+    <Compile Include="ViewModel\ViewModelClientsList.cs" />
     <Compile Include="ViewModel\ViewModelTrainerMain.cs" />
     <Compile Include="ViewModel\ViewModelUserLogIn.cs" />
     <Compile Include="View\AdminMainPage.xaml.cs">
       <DependentUpon>AdminMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminProfilePage.xaml.cs">
+      <DependentUpon>AdminProfilePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClientsDataGrid.xaml.cs">
       <DependentUpon>ClientsDataGrid.xaml</DependentUpon>
@@ -113,6 +118,9 @@
     <Compile Include="View\TrainerSchedulePage.xaml.cs">
       <DependentUpon>TrainerSchedulePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\TrainersDataGridPage.xaml.cs">
+      <DependentUpon>TrainersDataGridPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\UserSelectionWindow.xaml.cs">
       <DependentUpon>UserSelectionWindow.xaml</DependentUpon>
     </Compile>
@@ -121,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdminMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdminProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TrainerSchedulePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrainersDataGridPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

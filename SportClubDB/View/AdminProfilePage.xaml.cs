@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,16 +16,13 @@ using System.Windows.Shapes;
 namespace SportClubDB
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AdminProfilePage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AdminProfilePage : Page
     {
-
-        public MainWindow()
-        { 
+        public AdminProfilePage()
+        {
             InitializeComponent();
-            MainFrame.Navigate(new LogInPage(new ViewModelUserLogIn(MainFrame)));
         }
-
     }
 }

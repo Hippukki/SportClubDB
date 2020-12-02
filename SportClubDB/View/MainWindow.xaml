@@ -7,10 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF3D4470">
-        <Frame 
-            x:Name="MainFrame" 
+        <Frame
             NavigationUIVisibility="Hidden"
-            
-        />
+            x:Name="MainFrame"/>
     </Grid>
 </Window>

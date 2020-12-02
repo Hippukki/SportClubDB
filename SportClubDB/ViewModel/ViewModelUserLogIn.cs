@@ -10,48 +10,47 @@ namespace SportClubDB
 {
     public class ViewModelUserLogIn : BaseNotifyClass
     {
-        private Page currentPage;
         Trainer trainer;
         Admin admin;
 
-        public string Login { get; set; }
-        public string Password { get; set; }
+        private string login;
+        private string password;
+
+        public string Login { get => login; set { login = value; RaiseProperty(); } }
+        public string Password { get => password; set { password = value; RaiseProperty(); } }
 
         public SimpleCommand LogIn { get; set; }
-        public Page CurrentPage { get => currentPage; set { currentPage = value; RaiseProperty(); } }
 
-        public ViewModelUserLogIn()
+        public ViewModelUserLogIn( Frame frame)
         {
             
 
             LogIn = new SimpleCommand(() =>
             {
-                trainer = new Trainer().GetTrainerByLoginAndPassword(Login, Password);
-                admin = new Admin().GetAdminByLoginAndPassword(Login, Password);
-                CheckNull(admin, trainer);
-                var user = CompareUsers(admin, trainer);
-                if (user == admin)
-                    CurrentPage = new AdminMainPage(new ViewModelAdminMain(user));
+                if (Login != null)
+                {
+                    if (Password != null)
+                    {
+                        trainer = new Trainer().GetTrainerByLoginAndPassword(Login, Password);
+                        admin = new Admin().GetAdminByLoginAndPassword(Login, Password);
+                        if(admin.Login != Login && admin.Password != Password)
+                        {
+                            if(trainer.Login != Login && trainer.Password != Password)
+                            {
+                                MessageBox.Show("Такого пользователя не существует!");
+                            }else
+                                frame.Navigate(new TrainerMainPage(new ViewModelTrainerMain(trainer)));
+                        }
+                        else
+                            frame.Navigate(new AdminMainPage(new ViewModelAdminMain(admin)));
+                    }
+                    else
+                        MessageBox.Show("Пожалуйста, введите пароль!");
+                }
                 else
-                    CurrentPage = new TrainerMainPage(new ViewModelTrainerMain(user));
+                    MessageBox.Show("Пожалуйста, введите логин!");
 
             });
-        }
-
-        public object CompareUsers(Admin admin, Trainer trainer)
-        {
-            if (admin.Login == Login && admin.Password == Password)
-                return admin;
-            else
-                return trainer;
-        }
-        public void CheckNull(Admin admin, Trainer trainer)
-        {
-            if(admin.Login != Login && trainer.Login != Login)
-            {
-                MessageBox.Show("Такого пользователя не существует!");
-            }
-                
         }
 
     }

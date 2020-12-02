@@ -17,23 +17,25 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.ColumnSpan="2">
+        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding clients}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Foreground="White"/>
-                <DataGridTextColumn Header="Имя" Foreground="White"/>
-                <DataGridTextColumn Header="Фамилия" Foreground="White"/>
-                <DataGridTextColumn Header="Дата добавления" Foreground="White"/>
-                <DataGridTextColumn Header="Телефон" Foreground="White"/>
-                <DataGridTextColumn Header="График занятий" Foreground="White"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="Дата добавления" Binding="{Binding Created}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding IdPhone}"/>
+                <DataGridTextColumn Header="График занятий" />
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Редактировать"/>
-                    <MenuItem Header="Удалить"/>
-                </ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Редактировать"/>
+                <MenuItem Header="Удалить"/>
+            </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
-        <TextBox Text="Поиск..." 
+
+            <TextBox Text="Поиск..." 
                  Style="{DynamicResource TextBoxStyle}"
                  Padding="5"/>
         <Button Content="Искать"

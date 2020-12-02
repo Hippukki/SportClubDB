@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SportClubDB
 {
@@ -17,19 +18,35 @@ namespace SportClubDB
 
         public SimpleCommand CreateClient { get; set; }
 
-        public ViewModelAddClient(Client client)
+        public ViewModelAddClient(Client client, Trainer trainer)
         {
             this.client = client;
-            
             CreateClient = new SimpleCommand(() =>
             {
-                client.Name = Name;
-                client.Surname = Surname;
-                phone = new Phone();
-                phone.Number = Number;
-                phone.CreatePhone();
-                client.IdPhone = phone.GetPhoneId(Number);
-                client.CreateClient();
+                if (Name != null)
+                {
+                    if (Surname != null)
+                    {
+                        if (Number != null)
+                        {
+                            client.Name = Name;
+                            client.Surname = Surname;
+                            client.IdTrainer = trainer.ID;
+                            phone = new Phone();
+                            phone.Number = Number;
+                            phone.CreatePhone();
+                            client.IdPhone = phone.GetPhoneId(Number);
+                            client.CreateClient();
+                            MessageBox.Show("Клиент был успешно добавлен!");
+                        }else
+                            MessageBox.Show("Пожалуйста, введите номер мобильного телефона!");
+                    }
+                    else
+                        MessageBox.Show("Пожалуйста, введите фамилию!");
+                }
+                else
+                    MessageBox.Show("Пожалуйста, введите имя!");
+                
             });
         }
     }

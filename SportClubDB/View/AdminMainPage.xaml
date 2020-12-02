@@ -9,6 +9,56 @@
       Title="AdminMainPage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0"
+               Grid.Column="0"
+               Content="Sport Club"
+               BorderBrush="Black" 
+               Foreground="#FFFF00E8" 
+               FontSize="20" 
+               FontFamily="Unispace" Background="#FF2A2559"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Background="#FF2A2559">
+            <Button Content="Сотрудники"
+                    Style="{DynamicResource StartButtonStyle}"
+                    Command="{Binding OpenTrainers}"/>
+            <Button Content="Клиенты"
+                    Style="{DynamicResource StartButtonStyle}"
+                    Command="{Binding OpenClients}"/>
+            <Button Content="Мой график"
+                    Style="{DynamicResource StartButtonStyle}"
+                    />
+            <Button Content="График сотрудников"
+                    Style="{DynamicResource StartButtonStyle}"
+                    />
+        </StackPanel>
+
+        <Button Content="Выход"
+                Style="{DynamicResource StartButtonStyle}"
+                Grid.Row="1"
+                VerticalAlignment="Bottom"
+                />
+
+        <Menu Grid.Row="0" Grid.Column="1" Background="#FF2A2559">
+            <MenuItem Header="Редактировать профиль"
+                      Foreground="White" Padding="6" Background="#FF6256D8" Margin="2"
+                      Command="{Binding OpenEditMyProfile}"/>
+            <MenuItem Header="Добавить зал"
+                      Foreground="White" Padding="6" Background="#FF6256D8" Margin="2"
+                      />
+        </Menu>
+        <Frame 
+            x:Name="SecondaryFrame" 
+            NavigationUIVisibility="Hidden"
+            Grid.Column="1"
+            Grid.Row="1"
+            Content="{Binding CurrentPage}"
+        />
     </Grid>
 </Page>

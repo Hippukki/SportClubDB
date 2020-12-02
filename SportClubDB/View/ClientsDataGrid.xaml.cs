@@ -20,9 +20,10 @@ namespace SportClubDB
     /// </summary>
     public partial class ClientsDataGrid : Page
     {
-        public ClientsDataGrid()
+        public ClientsDataGrid(ViewModelClientsList view)
         {
             InitializeComponent();
+            DataContext = view;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace SportClubDB
         public string Surname { get; set; }
         public int IdPost { get; set; }
         public int IdTrainer { get; set; }
-        public DateTime Created { get; set; }
+        public string Created { get; set; }
         public int IdPhone { get; set; }
 
         public void CreateClient()
@@ -56,7 +56,7 @@ namespace SportClubDB
                             Surname = dr.GetString("surname"),
                             IdPost = dr.GetInt32("id_post"),
                             IdTrainer = dr.GetInt32("id_trainer"),
-                            Created = dr.GetDateTime("created"),
+                            Created = dr.GetString("created"),
                             IdPhone = dr.GetInt32("id_phone")
                         });
                     }

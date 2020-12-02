@@ -17,7 +17,6 @@ namespace SportClubDB
         public string Login { get; set; }
         public string Password { get; set; }
         public int IdPost { get; set; }
-        public int IdClient { get; set; }
         public int IdPhone { get; set; }
 
         public void CreateTrainer()
@@ -36,7 +35,6 @@ namespace SportClubDB
         {
             string update = "Update trainer Set name = '" + Name + "', " +
                 "surname = '" + Surname + "', " +
-                "id_client = '" + IdClient + "'," +
                 "login = '" + Login + "', " +
                 "password = '" + Password + "'" +
                 "id_phone = '"+ IdPhone +"' Where id = '" + ID + "'";

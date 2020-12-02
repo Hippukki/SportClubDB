@@ -1,0 +1,51 @@
+﻿<Page x:Class="SportClubDB.TrainersDataGridPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SportClubDB"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TrainersDataGridPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.RowSpan="2" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Foreground="White"/>
+                <DataGridTextColumn Header="Имя" Foreground="White"/>
+                <DataGridTextColumn Header="Фамилия" Foreground="White"/>
+                <DataGridTextColumn Header="Телефон" Foreground="White"/>
+                <DataGridTextColumn Header="График работы" Foreground="White"/>
+                <DataGridTextColumn Header="Список клиентов" Foreground="White"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Удалить"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <TextBox Text="Поиск..." 
+                 Style="{DynamicResource TextBoxStyle}"
+                 Padding="5"/>
+        <Button Content="Искать"
+                Style="{DynamicResource StartButtonStyle}"
+                Grid.Column="1"/>
+        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Foreground="White"/>
+                <DataGridTextColumn Header="Имя" Foreground="White"/>
+                <DataGridTextColumn Header="Фамилия" Foreground="White"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="График занятий" Grid.Row="2" Grid.Column="1" Foreground="White"/>
+    </Grid>
+</Page>

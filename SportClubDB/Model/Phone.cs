@@ -66,6 +66,17 @@ namespace SportClubDB
             }
             return IDphone;
         }
+        public string GetNumberById(int id)
+        {
+            string Number = "";
+            List<Phone> phones = GetAllPhone();
+            foreach(Phone phone in phones)
+            {
+                if (phone.ID == id)
+                    Number = phone.Number;
+            }return Number;
+        }
     }
 }
+
    
