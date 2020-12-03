@@ -1,7 +1,9 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -9,16 +11,29 @@ using System.Windows.Media;
 
 namespace SportClubDB
 {
-    public class Client : DB
+    public class Client : DB, INotifyPropertyChanged
     {
+        string name;
+        string surname;
+        string lastname;
+        long idPhone;
+
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Lastname { get; set; }
+        public string Name { get => name; set { name = value; RaiseProperty(); } }
+        public string Surname { get => surname; set { surname = value; RaiseProperty(); } }
+        public string Lastname { get => lastname; set { lastname = value; RaiseProperty(); } }
         public int IdPost { get; set; }
         public int IdTrainer { get; set; }
         public string Created { get; set; }
-        public long IdPhone { get; set; }
+        public long IdPhone { get => idPhone; set { idPhone = value; RaiseProperty(); } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaiseProperty([CallerMemberName] string property = null)
+        {
+            PropertyChanged?.Invoke(this,
+                new PropertyChangedEventArgs(property));
+        }
 
         public void CreateClient()
         {

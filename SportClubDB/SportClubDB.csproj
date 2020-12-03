@@ -89,6 +89,7 @@
     <Compile Include="ViewModel\ViewModelAdminMain.cs" />
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
     <Compile Include="ViewModel\ViewModelEditClient.cs" />
+    <Compile Include="ViewModel\ViewModelEditTrainer.cs" />
     <Compile Include="ViewModel\ViewModelTrainerMain.cs" />
     <Compile Include="ViewModel\ViewModelUserLogIn.cs" />
     <Compile Include="View\AdminMainPage.xaml.cs">

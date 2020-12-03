@@ -23,23 +23,28 @@ namespace SportClubDB
         {
             client = new Client();
             Clients = new ObservableCollection<Client>(client.GetClientsByTrainer(trainer.ID));
-            List<Phone> phones = new List<Phone>();
-            foreach(Client client in Clients)
-            {
-                phone = new Phone();
-                phone.Number = phone.GetNumberById(client.IdPhone);
-                client.IdPhone = Convert.ToInt64(phone.Number);
-            }
+            Converter();
 
             Edit = new SimpleCommand(() =>
             {
                 new ClientEditWindow(new ViewModelEditClient(SelectedClient)).ShowDialog();
+                Converter();
             });
 
             Delete = new SimpleCommand(() =>
             {
                 SelectedClient.RemoveClient();
+                Clients.Remove(SelectedClient);
             });
+        }
+        public void Converter()
+        {
+            foreach (Client client in Clients)
+            {
+                phone = new Phone();
+                phone.Number = phone.GetNumberById(client.IdPhone);
+                client.IdPhone = Convert.ToInt64(phone.Number);
+            }
         }
 
     }

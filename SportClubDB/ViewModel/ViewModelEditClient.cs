@@ -11,17 +11,11 @@ namespace SportClubDB
         Client edit;
         Phone editphone;
 
-        string name;
-        string surname;
-        string lastname;
-        int phoneid;
-        string number;
-
-        public string Name { get => name; set { name = value; RaiseProperty(); } }
-        public string Surname { get => surname; set { surname = value; RaiseProperty(); } }
-        public string Lastname { get => lastname; set { lastname = value; RaiseProperty(); } }
-        public int PhoneId { get => phoneid; set { phoneid = value; RaiseProperty(); } }
-        public string Number { get => number; set { number = value; RaiseProperty(); } }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Lastname { get; set; }
+        public int PhoneId { get; set; }
+        public string Number { get; set; }
 
         public SimpleCommand Save { get; set; }
         public ViewModelEditClient(Client edit)

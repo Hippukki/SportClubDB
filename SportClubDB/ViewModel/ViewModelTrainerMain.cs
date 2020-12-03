@@ -32,7 +32,7 @@ namespace SportClubDB
 
             OpenEditTrainer = new SimpleCommand(() =>
             {
-                 CurrentPage = new TrainerProfilePage();
+                 CurrentPage = new TrainerProfilePage(new ViewModelEditTrainer(trainer));
             });
 
             OpenMySchedule = new SimpleCommand(() =>

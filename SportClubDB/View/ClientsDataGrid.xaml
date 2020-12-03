@@ -21,11 +21,11 @@
                   ItemsSource="{Binding Clients, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedClient}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding Lastname}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
                 <DataGridTextColumn Header="Дата добавления" Binding="{Binding Created}"/>
-                <DataGridTextColumn Header="Телефон" Binding="{Binding IdPhone}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding IdPhone, UpdateSourceTrigger=PropertyChanged}"/>
                 <DataGridTextColumn Header="График занятий" />
             </DataGrid.Columns>
             <DataGrid.ContextMenu>

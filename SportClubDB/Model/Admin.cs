@@ -2,7 +2,9 @@
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,17 +13,31 @@ using System.Windows.Media;
 
 namespace SportClubDB
 {
-    public class Admin : DB
+    public class Admin : DB, INotifyPropertyChanged
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Lastname { get; set; }
-        public int IdPost { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public long IdPhone { get; set; }
+        string name;
+        string surname;
+        string lastname;
+        string login;
+        string password;
+        long idPhone;
 
+        public int ID { get; set; }
+        public string Name { get => name; set { name = value; RaiseProperty(); } }
+        public string Surname { get => surname; set { surname = value; RaiseProperty(); } }
+        public string Lastname { get => lastname; set { lastname = value; RaiseProperty(); } }
+        public int IdPost { get; set; }
+        public string Login { get => login; set { login = value; RaiseProperty(); } }
+        public string Password { get => password; set { password = value; RaiseProperty(); } }
+        public long IdPhone { get => idPhone; set { idPhone = value; RaiseProperty(); } }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void RaiseProperty([CallerMemberName] string property = null)
+        {
+            PropertyChanged?.Invoke(this,
+                new PropertyChangedEventArgs(property));
+        }
         public void CreateAdmin()
         {
             string add = "Insert Into administrator" +
