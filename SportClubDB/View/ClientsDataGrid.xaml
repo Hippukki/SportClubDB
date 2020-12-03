@@ -18,9 +18,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.ColumnSpan="2"
-                  ItemsSource="{Binding clients}" SelectedItem="{Binding SelectedClient}">
+                  ItemsSource="{Binding Clients, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedClient}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"/>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding Lastname}"/>

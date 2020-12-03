@@ -11,10 +11,10 @@ namespace SportClubDB
     {
         Client client;
         Phone phone;
-        Client selectedClient;
+        Client selectedClient; 
 
         public Client SelectedClient { get => selectedClient; set { selectedClient = value; RaiseProperty(); } }
-        public ObservableCollection<Client> clients { get; set; }
+        public ObservableCollection<Client> Clients { get; set; }
 
         public SimpleCommand Search { get; set; }
         public SimpleCommand Edit { get; set; }
@@ -22,9 +22,9 @@ namespace SportClubDB
         public ViewModelClientsList(Trainer trainer)
         {
             client = new Client();
-            clients = new ObservableCollection<Client>(client.GetClientsByTrainer(trainer.ID));
+            Clients = new ObservableCollection<Client>(client.GetClientsByTrainer(trainer.ID));
             List<Phone> phones = new List<Phone>();
-            foreach(Client client in clients)
+            foreach(Client client in Clients)
             {
                 phone = new Phone();
                 phone.Number = phone.GetNumberById(client.IdPhone);
@@ -39,8 +39,8 @@ namespace SportClubDB
             Delete = new SimpleCommand(() =>
             {
                 SelectedClient.RemoveClient();
-                RaiseProperty();
             });
         }
+
     }
 }
