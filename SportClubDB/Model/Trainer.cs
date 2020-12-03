@@ -14,16 +14,17 @@ namespace SportClubDB
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Lastname { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public int IdPost { get; set; }
-        public int IdPhone { get; set; }
+        public long IdPhone { get; set; }
 
         public void CreateTrainer()
         {
             string add = "Insert Into trainer" +
-                   "(id, name, surname, id_post, login, password, id_phone) " +
-                   "Values(0, '" + Name + "', '" + Surname + "', 2, '" + Login + "', '" + Password + "', "+IdPhone+")";
+                   "(id, name, surname, lastname, id_post, login, password, id_phone) " +
+                   "Values(0, '" + Name + "', '" + Surname + "', '"+Lastname+"', 2, '" + Login + "', '" + Password + "', "+IdPhone+")";
             MySqlCommand(add);
         }
         public void RemoveTrainer()
@@ -35,6 +36,7 @@ namespace SportClubDB
         {
             string update = "Update trainer Set name = '" + Name + "', " +
                 "surname = '" + Surname + "', " +
+                "lastname = '"+Lastname+"'"+
                 "login = '" + Login + "', " +
                 "password = '" + Password + "'" +
                 "id_phone = '"+ IdPhone +"' Where id = '" + ID + "'";
@@ -55,6 +57,7 @@ namespace SportClubDB
                             ID = dr.GetInt32("id"),
                             Name = dr.GetString("name"),
                             Surname = dr.GetString("surname"),
+                            Lastname = dr.GetString("lastname"),
                             IdPost = dr.GetInt32("id_post"),
                             IdPhone = dr.GetInt32("id_phone"),
                             Login = dr.GetString("login"),

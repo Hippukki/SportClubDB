@@ -88,6 +88,7 @@
     <Compile Include="ViewModel\ViewModelAddTrainer.cs" />
     <Compile Include="ViewModel\ViewModelAdminMain.cs" />
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
+    <Compile Include="ViewModel\ViewModelEditClient.cs" />
     <Compile Include="ViewModel\ViewModelTrainerMain.cs" />
     <Compile Include="ViewModel\ViewModelUserLogIn.cs" />
     <Compile Include="View\AdminMainPage.xaml.cs">
@@ -95,6 +96,9 @@
     </Compile>
     <Compile Include="View\AdminProfilePage.xaml.cs">
       <DependentUpon>AdminProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ClientEditWindow.xaml.cs">
+      <DependentUpon>ClientEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ClientsDataGrid.xaml.cs">
       <DependentUpon>ClientsDataGrid.xaml</DependentUpon>
@@ -133,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\AdminProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ClientEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

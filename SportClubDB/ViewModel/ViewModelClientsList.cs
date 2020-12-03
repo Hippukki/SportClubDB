@@ -10,13 +10,37 @@ namespace SportClubDB
     public class ViewModelClientsList : BaseNotifyClass
     {
         Client client;
+        Phone phone;
+        Client selectedClient;
+
+        public Client SelectedClient { get => selectedClient; set { selectedClient = value; RaiseProperty(); } }
         public ObservableCollection<Client> clients { get; set; }
 
         public SimpleCommand Search { get; set; }
+        public SimpleCommand Edit { get; set; }
+        public SimpleCommand Delete { get; set; }
         public ViewModelClientsList(Trainer trainer)
         {
             client = new Client();
             clients = new ObservableCollection<Client>(client.GetClientsByTrainer(trainer.ID));
+            List<Phone> phones = new List<Phone>();
+            foreach(Client client in clients)
+            {
+                phone = new Phone();
+                phone.Number = phone.GetNumberById(client.IdPhone);
+                client.IdPhone = Convert.ToInt64(phone.Number);
+            }
+
+            Edit = new SimpleCommand(() =>
+            {
+                new ClientEditWindow(new ViewModelEditClient(SelectedClient)).ShowDialog();
+            });
+
+            Delete = new SimpleCommand(() =>
+            {
+                SelectedClient.RemoveClient();
+                RaiseProperty();
+            });
         }
     }
 }

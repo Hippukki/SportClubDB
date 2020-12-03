@@ -26,6 +26,9 @@
             <Label Content="Фамилия"
                    Foreground="White"/>
             <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <Label Content="Отчество"
+                   Foreground="White"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}"/>
             <Label Content="Логин"
                    Foreground="White"/>
             <TextBox Style="{DynamicResource TextBoxStyle}"/>

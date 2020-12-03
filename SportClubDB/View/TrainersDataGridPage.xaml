@@ -20,12 +20,13 @@
         </Grid.ColumnDefinitions>
         <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.RowSpan="2" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Foreground="White"/>
-                <DataGridTextColumn Header="Имя" Foreground="White"/>
-                <DataGridTextColumn Header="Фамилия" Foreground="White"/>
-                <DataGridTextColumn Header="Телефон" Foreground="White"/>
-                <DataGridTextColumn Header="График работы" Foreground="White"/>
-                <DataGridTextColumn Header="Список клиентов" Foreground="White"/>
+                <DataGridTextColumn Header="ID"/>
+                <DataGridTextColumn Header="Имя"/>
+                <DataGridTextColumn Header="Фамилия"/>
+                <DataGridTextColumn Header="Отчество"/>
+                <DataGridTextColumn Header="Телефон"/>
+                <DataGridTextColumn Header="График работы"/>
+                <DataGridTextColumn Header="Список клиентов"/>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu>

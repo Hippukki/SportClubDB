@@ -14,16 +14,17 @@ namespace SportClubDB
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
+        public string Lastname { get; set; }
         public int IdPost { get; set; }
         public int IdTrainer { get; set; }
         public string Created { get; set; }
-        public int IdPhone { get; set; }
+        public long IdPhone { get; set; }
 
         public void CreateClient()
         {
             string add = "Insert Into client" +
-                   "(id, name, surname, id_post, id_trainer, created, id_phone) " +
-                   "Values(0, '" + Name + "', '" + Surname + "', 3, "+IdTrainer+ ", '"+DateTime.Now+"'," + IdPhone+")";
+                   "(id, name, surname, lastname, id_post, id_trainer, created, id_phone) " +
+                   "Values(0, '" + Name + "', '" + Surname + "', '"+Lastname+"', 3, "+IdTrainer+ ", '"+DateTime.Now+"'," + IdPhone+")";
             MySqlCommand(add);
         }
         public void RemoveClient()
@@ -33,10 +34,7 @@ namespace SportClubDB
         }
         public void UpdateClient()
         {
-            string update = "Update client Set name = '" + Name + "', " +
-                "surname = '" + Surname + "'" +
-                "id_trainer = '" + IdTrainer + "'" +
-                "id_phone = '"+ IdPhone + "' Where id = '" + ID + "'";
+            string update = "Update client Set name = '" + Name + "',surname = '" + Surname + "', lastname = '" + Lastname + "', id_trainer = '" + IdTrainer + "', id_phone = '" + IdPhone + "' WHERE id = '" + ID + "'";
             MySqlCommand(update);
         }
         public List<Client> GetClients()
@@ -54,6 +52,7 @@ namespace SportClubDB
                             ID = dr.GetInt32("id"),
                             Name = dr.GetString("name"),
                             Surname = dr.GetString("surname"),
+                            Lastname = dr.GetString("lastname"),
                             IdPost = dr.GetInt32("id_post"),
                             IdTrainer = dr.GetInt32("id_trainer"),
                             Created = dr.GetString("created"),

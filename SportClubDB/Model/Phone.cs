@@ -9,7 +9,7 @@ namespace SportClubDB
 {
     public class Phone : DB
     {
-        public int ID { get; set; }
+        public long ID { get; set; }
         public string Number { get; set; }
 
         public void CreatePhone()
@@ -66,7 +66,7 @@ namespace SportClubDB
             }
             return IDphone;
         }
-        public string GetNumberById(int id)
+        public string GetNumberById(long id)
         {
             string Number = "";
             List<Phone> phones = GetAllPhone();
