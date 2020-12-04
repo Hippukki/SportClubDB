@@ -7,9 +7,9 @@ using System.Windows;
 
 namespace SportClubDB
 {
-    public class ViewModelEditTrainer
+    public class ViewModelEditAdmin
     {
-        Trainer trainer;
+        Admin admin;
         Phone phone;
 
         public string Name { get; set; }
@@ -20,16 +20,16 @@ namespace SportClubDB
         public string Number { get; set; }
 
         public SimpleCommand Save { get; set; }
-        public ViewModelEditTrainer(Trainer trainer)
+        public ViewModelEditAdmin(Admin admin)
         {
+            this.admin = admin;
             phone = new Phone();
-            this.trainer = trainer;
-            Name = trainer.Name;
-            Surname = trainer.Surname;
-            Lastname = trainer.Lastname;
-            Login = trainer.Login;
-            Password = trainer.Password;
-            Number = phone.GetNumberById(trainer.IdPhone);
+            Name = admin.Name;
+            Surname = admin.Surname;
+            Lastname = admin.Lastname;
+            Login = admin.Login;
+            Password = admin.Password;
+            Number = phone.GetNumberById(admin.IdPhone);
 
             Save = new SimpleCommand(() =>
             {
@@ -39,32 +39,32 @@ namespace SportClubDB
                     {
                         if (Lastname != null)
                         {
-                            if (Number != null)
+                            if (Login != null)
                             {
-                                if (Login != null)
+                                if (Password != null)
                                 {
-                                    if (Password != null)
+                                    if (Number != null)
                                     {
-                                        trainer.Name = Name;
-                                        trainer.Surname = Surname;
-                                        trainer.Lastname = Lastname;
-                                        trainer.Login = Login;
-                                        trainer.Password = Password;
-                                        phone.ID = trainer.IdPhone;
+                                        admin.Name = Name;
+                                        admin.Surname = Surname;
+                                        admin.Lastname = Lastname;
+                                        admin.Login = Login;
+                                        admin.Password = Password;
+                                        phone.ID = admin.IdPhone;
                                         phone.Number = Number;
                                         phone.UpdatePhone();
-                                        trainer.UpdateTrainer();
+                                        admin.UpdateAdmin();
                                         MessageBox.Show("Ваши данные были успешно обновлены!");
+
                                     }
                                     else
-                                        MessageBox.Show("Пожалуйста, введите пароль!");
+                                        MessageBox.Show("Пожалуйста, введите номер мобильного телефона!");
                                 }
                                 else
-                                    MessageBox.Show("Пожалуйста, введите логин!");
-
+                                    MessageBox.Show("Пожалуйста, введите пароль!");
                             }
                             else
-                                MessageBox.Show("Пожалуйста, введите номер мобильного телефона!");
+                                 MessageBox.Show("Пожалуйста, введите логин!");
                         }
                         else
                             MessageBox.Show("Пожалуйста, введите отчество!");
@@ -76,5 +76,6 @@ namespace SportClubDB
                     MessageBox.Show("Пожалуйста, введите имя!");
             });
         }
+
     }
 }

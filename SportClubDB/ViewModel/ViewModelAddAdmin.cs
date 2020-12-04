@@ -33,18 +33,28 @@ namespace SportClubDB
                         {
                             if (Number != null)
                             {
-                                admin = new Admin();
-                                admin.Name = Name;
-                                admin.Surname = Surname;
-                                admin.Lastname = Lastname;
-                                admin.Login = Login;
-                                admin.Password = Password;
-                                phone = new Phone();
-                                phone.Number = Number;
-                                phone.CreatePhone();
-                                admin.IdPhone = phone.GetPhoneId(Number);
-                                admin.CreateAdmin();
-                                MessageBox.Show("Пользователь был успешно создан!");
+                                if (Login != null)
+                                {
+                                    if (Password != null)
+                                    {
+                                        admin = new Admin();
+                                        admin.Name = Name;
+                                        admin.Surname = Surname;
+                                        admin.Lastname = Lastname;
+                                        admin.Login = Login;
+                                        admin.Password = Password;
+                                        phone = new Phone();
+                                        phone.Number = Number;
+                                        phone.CreatePhone();
+                                        admin.IdPhone = phone.GetPhoneId(Number);
+                                        admin.CreateAdmin();
+                                        MessageBox.Show("Пользователь был успешно создан!");
+                                    }else
+                                        MessageBox.Show("Пожалуйста, введите пароль!");
+                                }
+                                else
+                                    MessageBox.Show("Пожалуйста, введите логин!");
+                                
                             }
                             else
                                 MessageBox.Show("Пожалуйста, введите номер мобильного телефона!");

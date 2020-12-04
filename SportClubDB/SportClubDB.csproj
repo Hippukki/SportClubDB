@@ -38,6 +38,7 @@
     <Reference Include="MySqlConnector, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
       <HintPath>..\packages\MySqlConnector.1.0.1\lib\net471\MySqlConnector.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
@@ -88,6 +89,7 @@
     <Compile Include="ViewModel\ViewModelAddTrainer.cs" />
     <Compile Include="ViewModel\ViewModelAdminMain.cs" />
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
+    <Compile Include="ViewModel\ViewModelEditAdmin.cs" />
     <Compile Include="ViewModel\ViewModelEditClient.cs" />
     <Compile Include="ViewModel\ViewModelEditTrainer.cs" />
     <Compile Include="ViewModel\ViewModelTrainerMain.cs" />
@@ -129,6 +131,10 @@
     <Compile Include="View\UserSelectionWindow.xaml.cs">
       <DependentUpon>UserSelectionWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\StartButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

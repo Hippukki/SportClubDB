@@ -41,7 +41,7 @@ namespace SportClubDB
             });
             OpenEditMyProfile = new SimpleCommand(() =>
             {
-                CurrentPage = new AdminProfilePage();
+                CurrentPage = new AdminProfilePage(new ViewModelEditAdmin(admin));
             });
             OpenAddGym = new SimpleCommand(() =>
             {

@@ -16,8 +16,9 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.ColumnSpan="2"
+        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.ColumnSpan="3"
                   ItemsSource="{Binding Clients, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedClient}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
@@ -36,11 +37,13 @@
             </DataGrid.ContextMenu>
         </DataGrid>
 
-            <TextBox Text="Поиск..." 
+        <TextBox Text="{Binding Request}" 
                  Style="{DynamicResource TextBoxStyle}"
                  Padding="5"/>
         <Button Content="Искать"
                 Style="{DynamicResource StartButtonStyle}"
-                Grid.Column="1"/>
+                Grid.Column="2"
+                Command="{Binding Search}"/>
+        <ComboBox Grid.Column="1"  ItemsSource="{Binding types}" SelectedItem="{Binding SelectedType}" Style="{DynamicResource ComboBoxStyle}" Background="#FF282F4D" BorderBrush="#FFBB3333"/>
     </Grid>
 </Page>

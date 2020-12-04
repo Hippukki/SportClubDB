@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportClubDB"
         mc:Ignorable="d"
-        Title="ClientEditWindow" Height="300" Width="400">
+        Title="ClientEditWindow" Height="300" Width="400" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF3D4470">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

@@ -22,28 +22,29 @@
         <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">
             <Label Content="Имя"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Name}"/>
             <Label Content="Фамилия"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Surname}"/>
             <Label Content="Отчество"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Lastname}"/>
             <Label Content="Логин"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Login}"/>
             <Label Content="Пароль"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Password}"/>
             <Label Content="Телефон"
                    Foreground="White"/>
-            <TextBox Style="{DynamicResource TextBoxStyle}"/>
+            <TextBox Style="{DynamicResource TextBoxStyle}" Text="{Binding Number}"/>
 
         </StackPanel>
         <Button Content="Сохранить"
                 Style="{DynamicResource StartButtonStyle}"
                 Grid.Row="2"
-                Grid.Column="2" VerticalAlignment="Bottom"/>
+                Grid.Column="2" VerticalAlignment="Bottom"
+                Command="{Binding Save}"/>
 
     </Grid>
 </Page>

@@ -52,12 +52,7 @@ namespace SportClubDB
         }
         public void UpdateAdmin()
         {
-            string update = "Update administrator Set name = '"+Name+"', " +
-                "surname = '"+Surname+ "',  " +
-                "lastname = '"+Lastname+"'"+
-                "login = '" + Login + "', " +
-                "password = '" + Password + "'" +
-                "id_phone = '"+IdPhone+"' Where id = '"+ID+"'";
+            string update = "Update administrator Set name = '" + Name + "',surname = '" + Surname + "', lastname = '" + Lastname + "', login ='" + Login + "', password ='" + Password + "', id_phone = '" + IdPhone + "' WHERE id = '" + ID + "'";
             MySqlCommand(update);
         }
         public List<Admin> GetAdmins()

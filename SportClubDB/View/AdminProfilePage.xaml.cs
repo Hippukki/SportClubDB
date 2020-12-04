@@ -20,9 +20,10 @@ namespace SportClubDB
     /// </summary>
     public partial class AdminProfilePage : Page
     {
-        public AdminProfilePage()
+        public AdminProfilePage(ViewModelEditAdmin view)
         {
             InitializeComponent();
+            DataContext = view;
         }
     }
 }

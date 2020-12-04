@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SportClubDB
 {
@@ -11,9 +12,13 @@ namespace SportClubDB
     {
         Client client;
         Phone phone;
-        Client selectedClient; 
+        Client selectedClient;
+        string selectedType;
 
+        public string Request { get; set; }
+        public List<string> types { get; set; }
         public Client SelectedClient { get => selectedClient; set { selectedClient = value; RaiseProperty(); } }
+        public string SelectedType { get => selectedType; set { selectedType = value; RaiseProperty(); } }
         public ObservableCollection<Client> Clients { get; set; }
 
         public SimpleCommand Search { get; set; }
@@ -24,6 +29,13 @@ namespace SportClubDB
             client = new Client();
             Clients = new ObservableCollection<Client>(client.GetClientsByTrainer(trainer.ID));
             Converter();
+
+            types = new List<string>()
+            {
+                "Имя",
+                "Фамилия",
+                "Отчество"
+            };
 
             Edit = new SimpleCommand(() =>
             {
@@ -36,6 +48,46 @@ namespace SportClubDB
                 SelectedClient.RemoveClient();
                 Clients.Remove(SelectedClient);
             });
+            Search = new SimpleCommand(() =>
+            {
+                if (Request != null)
+                {
+                    List<Client> clients = new List<Client>();
+                    if (SelectedType == "Имя")
+                    {
+                        foreach (Client client in Clients)
+                        {
+                            if (client.Name == Request)
+                            {
+                                clients.Add(client);
+                            }
+                        }
+                    }
+                    else if (SelectedType == "Фамилия")
+                    {
+                        foreach (Client client in Clients)
+                        {
+                            if (client.Surname == Request)
+                            {
+                                clients.Add(client);
+                            }
+                        }
+                    }
+                    else if (SelectedType == "Отчество")
+                    {
+                        foreach (Client client in Clients)
+                        {
+                            if (client.Lastname == Request)
+                            {
+                                clients.Add(client);
+                            }
+                        }
+                    }
+                    GetSearchResult(clients);
+                }
+                else
+                    MessageBox.Show("Пожалуйста, введите запрос в поле поиска!");
+            });
         }
         public void Converter()
         {
@@ -44,6 +96,14 @@ namespace SportClubDB
                 phone = new Phone();
                 phone.Number = phone.GetNumberById(client.IdPhone);
                 client.IdPhone = Convert.ToInt64(phone.Number);
+            }
+        }
+        public void GetSearchResult(List<Client> clients)
+        {
+            Clients.Clear();
+            foreach(Client client in clients)
+            {
+                Clients.Add(client);
             }
         }
 

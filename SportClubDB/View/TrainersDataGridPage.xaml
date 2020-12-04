@@ -42,9 +42,11 @@
                 Grid.Column="1"/>
         <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.Column="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Foreground="White"/>
-                <DataGridTextColumn Header="Имя" Foreground="White"/>
-                <DataGridTextColumn Header="Фамилия" Foreground="White"/>
+                <DataGridTextColumn Header="ID"/>
+                <DataGridTextColumn Header="Имя"/>
+                <DataGridTextColumn Header="Фамилия"/>
+                <DataGridTextColumn Header="Отчество"/>
+                <DataGridTextColumn Header="Телефон"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="График занятий" Grid.Row="2" Grid.Column="1" Foreground="White"/>

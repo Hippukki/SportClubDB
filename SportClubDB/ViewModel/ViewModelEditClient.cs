@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SportClubDB
 {
@@ -30,14 +31,35 @@ namespace SportClubDB
 
             Save = new SimpleCommand(() =>
             {
-                edit.Name = Name;
-                edit.Surname = Surname;
-                edit.Lastname = Lastname;
-                editphone.ID = PhoneId;
-                editphone.Number = Number;
-                editphone.UpdatePhone();
-                edit.IdPhone = PhoneId;
-                edit.UpdateClient();
+                if (Name != null)
+                {
+                    if (Surname != null)
+                    {
+                        if (Lastname != null)
+                        {
+                            if (Number != null)
+                            {
+                                edit.Name = Name;
+                                edit.Surname = Surname;
+                                edit.Lastname = Lastname;
+                                editphone.ID = PhoneId;
+                                editphone.Number = Number;
+                                editphone.UpdatePhone();
+                                edit.IdPhone = PhoneId;
+                                edit.UpdateClient();
+                                MessageBox.Show("Данные клиента были успешно обновлены");
+                            }
+                            else
+                                MessageBox.Show("Пожалуйста, введите номер мобильного телефона!");
+                        }
+                        else
+                            MessageBox.Show("Пожалуйста, введите отчество!");
+                    }
+                    else
+                        MessageBox.Show("Пожалуйста, введите фамилию!");
+                }
+                else
+                    MessageBox.Show("Пожалуйста, введите имя!");
             });
         }
     }
