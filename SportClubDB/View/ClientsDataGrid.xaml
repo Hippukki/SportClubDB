@@ -44,6 +44,6 @@
                 Style="{DynamicResource StartButtonStyle}"
                 Grid.Column="2"
                 Command="{Binding Search}"/>
-        <ComboBox Grid.Column="1"  ItemsSource="{Binding types}" SelectedItem="{Binding SelectedType}" Style="{DynamicResource ComboBoxStyle}" Background="#FF282F4D" BorderBrush="#FFBB3333"/>
+        <ComboBox Grid.Column="1"  ItemsSource="{Binding types}" SelectedItem="{Binding SelectedType}" Style="{DynamicResource ComboBoxStyle}"/>
     </Grid>
 </Page>

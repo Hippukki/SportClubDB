@@ -54,6 +54,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Handles" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -81,6 +82,7 @@
     <Compile Include="Model\DB.cs" />
     <Compile Include="Model\Phone.cs" />
     <Compile Include="Model\Post.cs" />
+    <Compile Include="Model\Event.cs" />
     <Compile Include="ViewModel\BaseNotifyClass.cs" />
     <Compile Include="ViewModel\Command.cs" />
     <Compile Include="ViewModel\SimpleCommand.cs" />
@@ -92,7 +94,10 @@
     <Compile Include="ViewModel\ViewModelEditAdmin.cs" />
     <Compile Include="ViewModel\ViewModelEditClient.cs" />
     <Compile Include="ViewModel\ViewModelEditTrainer.cs" />
+    <Compile Include="ViewModel\ViewModelTrainerAddEvent.cs" />
+    <Compile Include="ViewModel\ViewModelTrainerEventEdit.cs" />
     <Compile Include="ViewModel\ViewModelTrainerMain.cs" />
+    <Compile Include="ViewModel\ViewModelTrainerEvents.cs" />
     <Compile Include="ViewModel\ViewModelUserLogIn.cs" />
     <Compile Include="View\AdminMainPage.xaml.cs">
       <DependentUpon>AdminMainPage.xaml</DependentUpon>
@@ -116,14 +121,20 @@
       <DependentUpon>SingUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Trainer.cs" />
+    <Compile Include="View\TrainerAddEvent.xaml.cs">
+      <DependentUpon>TrainerAddEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TrainerEventEdit.xaml.cs">
+      <DependentUpon>TrainerEventEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TrainerEventsPage.xaml.cs">
+      <DependentUpon>TrainerEventsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\TrainerMainPage.xaml.cs">
       <DependentUpon>TrainerMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TrainerProfilePage.xaml.cs">
       <DependentUpon>TrainerProfilePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\TrainerSchedulePage.xaml.cs">
-      <DependentUpon>TrainerSchedulePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TrainersDataGridPage.xaml.cs">
       <DependentUpon>TrainersDataGridPage.xaml</DependentUpon>
@@ -131,7 +142,7 @@
     <Compile Include="View\UserSelectionWindow.xaml.cs">
       <DependentUpon>UserSelectionWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="ComboBox.xaml">
+    <Page Include="Resources\ComboBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,15 +195,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\TrainerAddEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrainerEventEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TrainerEventsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\TrainerMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\TrainerProfilePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\TrainerSchedulePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

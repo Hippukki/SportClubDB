@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SportClubDB
 {
     /// <summary>
-    /// Логика взаимодействия для TrainerSchedulePage.xaml
+    /// Логика взаимодействия для TrainerAddEvent.xaml
     /// </summary>
-    public partial class TrainerSchedulePage : Page
+    public partial class TrainerAddEvent : Window
     {
-        public TrainerSchedulePage()
+        public TrainerAddEvent(ViewModelTrainerAddEvent view)
         {
             InitializeComponent();
+            DataContext = view;
         }
     }
 }

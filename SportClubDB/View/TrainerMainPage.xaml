@@ -28,9 +28,9 @@
             <Button Content="Мои клиенты"
                     Style="{DynamicResource StartButtonStyle}"
                     Command="{Binding OpenClients}"/>
-            <Button Content="Мой график"
+            <Button Content="События"
                     Style="{DynamicResource StartButtonStyle}"
-                    Command="{Binding OpenMySchedule}"/>
+                    Command="{Binding OpenMyEvents}"/>
         </StackPanel>
         
         <Button Content="Выход"

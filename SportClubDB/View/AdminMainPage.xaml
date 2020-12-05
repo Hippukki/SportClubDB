@@ -33,7 +33,7 @@
                     Command="{Binding OpenClients}"/>
             <Button Content="Мой график"
                     Style="{DynamicResource StartButtonStyle}"
-                    />
+                    Command="{Binding OpenMySchedule}"/>
             <Button Content="График сотрудников"
                     Style="{DynamicResource StartButtonStyle}"
                     />
