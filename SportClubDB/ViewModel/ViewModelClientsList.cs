@@ -11,7 +11,6 @@ namespace SportClubDB
     public class ViewModelClientsList : BaseNotifyClass
     {
         Client client;
-        Phone phone;
         Client selectedClient;
         string selectedType;
 
@@ -53,35 +52,32 @@ namespace SportClubDB
                 if (Request != null)
                 {
                     List<Client> clients = new List<Client>();
-                    if (SelectedType == "Имя")
+                    switch (SelectedType)
                     {
-                        foreach (Client client in Clients)
-                        {
-                            if (client.Name == Request)
+                        case "Имя":
+                            foreach (Client client in Clients)
                             {
-                                clients.Add(client);
-                            }
-                        }
-                    }
-                    else if (SelectedType == "Фамилия")
-                    {
-                        foreach (Client client in Clients)
-                        {
-                            if (client.Surname == Request)
+                                if (client.Name == Request)
+                                {
+                                    clients.Add(client);
+                                }
+                            }break;
+                        case "Фамилия":
+                            foreach (Client client in Clients)
                             {
-                                clients.Add(client);
-                            }
-                        }
-                    }
-                    else if (SelectedType == "Отчество")
-                    {
-                        foreach (Client client in Clients)
-                        {
-                            if (client.Lastname == Request)
+                                if (client.Surname == Request)
+                                {
+                                    clients.Add(client);
+                                }
+                            }break;
+                        case "Отчество":
+                            foreach (Client client in Clients)
                             {
-                                clients.Add(client);
-                            }
-                        }
+                                if (client.Lastname == Request)
+                                {
+                                    clients.Add(client);
+                                }
+                            }break;
                     }
                     GetSearchResult(clients);
                 }
@@ -93,7 +89,7 @@ namespace SportClubDB
         {
             foreach (Client client in Clients)
             {
-                phone = new Phone();
+                Phone phone = new Phone();
                 phone.Number = phone.GetNumberById(client.IdPhone);
                 client.IdPhone = Convert.ToInt64(phone.Number);
             }

@@ -11,44 +11,68 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.RowSpan="2" >
+        <ComboBox Grid.Column="2" Style="{DynamicResource ComboBoxStyle}"
+                  ItemsSource="{Binding types}"
+                  SelectedItem="{Binding SelectedType, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Grid.Row="1" Content="Сотрудники" Foreground="White"/>
+        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2" Grid.RowSpan="3"
+                  ItemsSource="{Binding Trainers, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedTrainer, UpdateSourceTrigger=PropertyChanged}"
+                  Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"/>
-                <DataGridTextColumn Header="Имя"/>
-                <DataGridTextColumn Header="Фамилия"/>
-                <DataGridTextColumn Header="Отчество"/>
-                <DataGridTextColumn Header="Телефон"/>
-                <DataGridTextColumn Header="График работы"/>
-                <DataGridTextColumn Header="Список клиентов"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding IdPhone, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Удалить"/>
+                    <MenuItem Header="Удалить" Command="{Binding Remove}"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
-        <TextBox Text="Поиск..." 
+        <TextBox Text="{Binding Request}" 
                  Style="{DynamicResource TextBoxStyle}"
-                 Padding="5"/>
+                 Padding="5"
+                 Grid.ColumnSpan="2"/>
         <Button Content="Искать"
                 Style="{DynamicResource StartButtonStyle}"
-                Grid.Column="1"/>
-        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="1" Grid.Column="1">
+                Grid.Column="3"
+                Command="{Binding Search}"/>
+        <Label Grid.Row="1" Grid.Column="2" Content="Клиенты сотрудника" Foreground="White"/>
+        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="2" Grid.Column="2"
+                  ItemsSource="{Binding Clients, UpdateSourceTrigger=PropertyChanged}"
+                  Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID"/>
-                <DataGridTextColumn Header="Имя"/>
-                <DataGridTextColumn Header="Фамилия"/>
-                <DataGridTextColumn Header="Отчество"/>
-                <DataGridTextColumn Header="Телефон"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding IdPhone, UpdateSourceTrigger=PropertyChanged}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="График занятий" Grid.Row="2" Grid.Column="1" Foreground="White"/>
+        <Label Grid.Row="3" Grid.Column="2" Content="События сотрудника" Foreground="White"/>
+        <DataGrid Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Row="4" Grid.Column="2"
+                  ItemsSource="{Binding Events,UpdateSourceTrigger=PropertyChanged}"
+                  Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

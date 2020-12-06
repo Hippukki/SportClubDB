@@ -28,30 +28,21 @@
             <Button Content="Сотрудники"
                     Style="{DynamicResource StartButtonStyle}"
                     Command="{Binding OpenTrainers}"/>
-            <Button Content="Клиенты"
+            <Button Content="Мои события"
                     Style="{DynamicResource StartButtonStyle}"
-                    Command="{Binding OpenClients}"/>
-            <Button Content="Мой график"
-                    Style="{DynamicResource StartButtonStyle}"
-                    Command="{Binding OpenMySchedule}"/>
-            <Button Content="График сотрудников"
-                    Style="{DynamicResource StartButtonStyle}"
-                    />
+                    Command="{Binding OpenMyEvents}"/>
         </StackPanel>
 
-        <Button Content="Выход"
+        <Button Content="Назад"
                 Style="{DynamicResource StartButtonStyle}"
                 Grid.Row="1"
                 VerticalAlignment="Bottom"
-                />
+                Command="{Binding Exit}"/>
 
         <Menu Grid.Row="0" Grid.Column="1" Background="#FF2A2559">
             <MenuItem Header="Редактировать профиль"
                       Foreground="White" Padding="6" Background="#FF6256D8" Margin="2"
                       Command="{Binding OpenEditMyProfile}"/>
-            <MenuItem Header="Добавить зал"
-                      Foreground="White" Padding="6" Background="#FF6256D8" Margin="2"
-                      />
         </Menu>
         <Frame 
             x:Name="SecondaryFrame" 

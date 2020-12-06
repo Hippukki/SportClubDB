@@ -43,13 +43,6 @@ namespace SportClubDB
                    "Values(0, '" + Date + "', '" + Name + "', '" + Description + "','" + IdUser + "')";
             MySqlCommand(add);
         }
-        public void CreateEventForClient()
-        {
-            string add = "Insert Into event" +
-                   "(id, date, name, description,id_client) " +
-                   "Values(0, '" + Date + "', '" + Name + "', '" + Description + "','" + IdUser + "')";
-            MySqlCommand(add);
-        }
         public void UpdateEventForAdmin()
         {
             string update = "Update event Set date = '" + Date + "',name = '" + Name + "', description = '" + Description + "',id_admin = '" + IdUser + "' WHERE id = '" + ID + "'";
@@ -58,11 +51,6 @@ namespace SportClubDB
         public void UpdateEventForTrainer()
         {
             string update = "Update event Set date = '" + Date + "',name = '" + Name + "', description = '" + Description + "',id_trainer = '" + IdUser + "' WHERE id = '" + ID + "'";
-            MySqlCommand(update);
-        }
-        public void UpdateEventForClient()
-        {
-            string update = "Update event Set date = '" + Date + "',name = '" + Name + "', description = '" + Description + "',id_client = '" + IdUser + "' WHERE id = '" + ID + "'";
             MySqlCommand(update);
         }
         public void RemoveEvent()
@@ -116,29 +104,7 @@ namespace SportClubDB
             }
             return events;
         }
-        public List<Event> GetEventsForClientById(int value)
-        {
-            List<Event> events = new List<Event>();
-            string sql = $"select * from event where id_client like '{value}'";
-            if (OpenConnection())
-            {
-                using (var mc = new MySqlCommand(sql, connection))
-                using (var dr = mc.ExecuteReader())
-                    while (dr.Read())
-                    {
-                        events.Add(new Event
-                        {
-                            ID = dr.GetInt32("id"),
-                            Date = dr.GetString("date"),
-                            Name = dr.GetString("name"),
-                            Description = dr.GetString("description"),
-                            IdUser = dr.GetInt32("id_client")
-                        });
-                    }
-                CloseConnection();
-            }
-            return events;
-        }
+
     }
 
 }

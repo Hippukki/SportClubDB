@@ -15,9 +15,10 @@ namespace SportClubDB
         public SimpleCommand OpenCreateClient { get; set; }
         public SimpleCommand OpenEditTrainer { get; set; }
         public SimpleCommand OpenMyEvents { get; set; }
+        public SimpleCommand Exit { get; set; }
         public Page CurrentPage { get => currentPage; set { currentPage = value; RaiseProperty(); } }
 
-        public ViewModelTrainerMain( Trainer trainer)
+        public ViewModelTrainerMain( Trainer trainer, Frame frame)
         {
             this.trainer = trainer;
             OpenClients = new SimpleCommand(() =>
@@ -38,6 +39,11 @@ namespace SportClubDB
             OpenMyEvents = new SimpleCommand(() =>
             {
                  CurrentPage = new TrainerEventsPage(new ViewModelTrainerEvents(trainer));
+            });
+
+            Exit = new SimpleCommand(() =>
+            {
+                frame.GoBack();
             });
 
         }

@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace SportClubDB
 {
-    public class ViewModelTrainerEventEdit
+    public class ViewModelAdminEditEvent
     {
         Event edit;
 
@@ -17,7 +17,7 @@ namespace SportClubDB
 
         public SimpleCommand Save { get; set; }
 
-        public ViewModelTrainerEventEdit(Event edit)
+        public ViewModelAdminEditEvent(Event edit)
         {
             this.edit = edit;
             Name = edit.Name;
@@ -26,14 +26,14 @@ namespace SportClubDB
 
             Save = new SimpleCommand(() =>
             {
-                if(Name != null)
+                if (Name != null)
                 {
-                    if(Description != null)
+                    if (Description != null)
                     {
                         edit.Name = Name;
                         edit.Description = Description;
                         edit.Date = Date.Date.ToString();
-                        edit.UpdateEventForTrainer();
+                        edit.UpdateEventForAdmin();
                         MessageBox.Show("Событие было успешно изменено!");
                     }
                 }

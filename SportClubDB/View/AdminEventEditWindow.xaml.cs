@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SportClubDB
 {
     /// <summary>
-    /// Логика взаимодействия для TrainersDataGridPage.xaml
+    /// Логика взаимодействия для AdminEventEditWindow.xaml
     /// </summary>
-    public partial class TrainersDataGridPage : Page
+    public partial class AdminEventEditWindow : Window
     {
-        public TrainersDataGridPage(ViewModelTrainersList view)
+        public AdminEventEditWindow(ViewModelAdminEditEvent view)
         {
             InitializeComponent();
             DataContext = view;

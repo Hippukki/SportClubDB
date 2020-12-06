@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace SportClubDB
 {
     /// <summary>
-    /// Логика взаимодействия для TrainersDataGridPage.xaml
+    /// Логика взаимодействия для AdminEventsPage.xaml
     /// </summary>
-    public partial class TrainersDataGridPage : Page
+    public partial class AdminEventsPage : Page
     {
-        public TrainersDataGridPage(ViewModelTrainersList view)
+        public AdminEventsPage(ViewModelAdminEventsPage view)
         {
             InitializeComponent();
             DataContext = view;

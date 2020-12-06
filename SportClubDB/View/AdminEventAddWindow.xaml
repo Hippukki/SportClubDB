@@ -1,11 +1,11 @@
-﻿<Window x:Class="SportClubDB.TrainerEventEdit"
+﻿<Window x:Class="SportClubDB.AdminEventAddWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportClubDB"
         mc:Ignorable="d"
-        Title="Окно редактирования события" Height="450" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Окно добавления события" Height="450" Width="300" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF3D4470">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -22,6 +22,6 @@
         <TextBox Grid.Row="2" Style="{DynamicResource TextBoxStyle}" Text="{Binding Name}"/>
         <Label Content="Описание" Foreground="White" Grid.Row="3"/>
         <TextBox Grid.Row="4" Style="{DynamicResource TextBoxStyle}" TextWrapping="Wrap" Text="{Binding Description}"/>
-        <Button Grid.Row="5" Content="Сохранить изменения" Style="{DynamicResource StartButtonStyle}" Command="{Binding Save}"/>
+        <Button Grid.Row="5" Content="Добавить событие" Style="{DynamicResource StartButtonStyle}" Command="{Binding Save}"/>
     </Grid>
 </Window>

@@ -33,7 +33,7 @@
                     Command="{Binding OpenMyEvents}"/>
         </StackPanel>
         
-        <Button Content="Выход"
+        <Button Content="Назад"
                 Style="{DynamicResource StartButtonStyle}"
                 Grid.Row="1"
                 VerticalAlignment="Bottom"

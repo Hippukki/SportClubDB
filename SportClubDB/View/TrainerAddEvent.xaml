@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportClubDB"
         mc:Ignorable="d"
-        Title="TrainerAddEvent" Height="450" Width="300" WindowStartupLocation="CenterScreen">
+        Title="Окно добавления события" Height="450" Width="300" WindowStartupLocation="CenterScreen">
     <Grid Background="#FF3D4470">
     <Grid.RowDefinitions>
         <RowDefinition/>

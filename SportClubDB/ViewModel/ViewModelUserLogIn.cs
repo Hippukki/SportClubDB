@@ -23,7 +23,6 @@ namespace SportClubDB
 
         public ViewModelUserLogIn( Frame frame)
         {
-            
 
             LogIn = new SimpleCommand(() =>
             {
@@ -39,10 +38,10 @@ namespace SportClubDB
                             {
                                 MessageBox.Show("Такого пользователя не существует!");
                             }else
-                                frame.Navigate(new TrainerMainPage(new ViewModelTrainerMain(trainer)));
+                                frame.Navigate(new TrainerMainPage(new ViewModelTrainerMain(trainer, frame)));
                         }
                         else
-                            frame.Navigate(new AdminMainPage(new ViewModelAdminMain(admin)));
+                            frame.Navigate(new AdminMainPage(new ViewModelAdminMain(admin, frame)));
                     }
                     else
                         MessageBox.Show("Пожалуйста, введите пароль!");

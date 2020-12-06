@@ -7,19 +7,19 @@ using System.Windows;
 
 namespace SportClubDB
 {
-    public class ViewModelTrainerAddEvent
+    public class ViewModelAdminAddEvent
     {
         Event Event;
-        Trainer trainer;
+        Admin admin;
         public DateTime Date { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 
         public SimpleCommand Save { get; set; }
 
-        public ViewModelTrainerAddEvent(Trainer trainer)
+        public ViewModelAdminAddEvent(Admin admin)
         {
-            this.trainer = trainer;
+            this.admin = admin;
             Save = new SimpleCommand(() =>
             {
                 if (Name != null)
@@ -30,8 +30,8 @@ namespace SportClubDB
                         Event.Name = Name;
                         Event.Description = Description;
                         Event.Date = Date.Date.ToString();
-                        Event.IdUser = trainer.ID;
-                        Event.CreateEventForTrainer();
+                        Event.IdUser = admin.ID;
+                        Event.CreateEventForAdmin();
                         MessageBox.Show("Событие было успешно созданно!");
                     }
                 }

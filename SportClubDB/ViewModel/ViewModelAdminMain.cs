@@ -15,37 +15,28 @@ namespace SportClubDB
         public Page CurrentPage { get => currentPage; set { currentPage = value; RaiseProperty(); } }
 
         public SimpleCommand OpenTrainers { get; set; }
-        public SimpleCommand OpenMySchedule { get; set; }
-        public SimpleCommand OpenTrainersSchedule { get; set; }
+        public SimpleCommand OpenMyEvents { get; set; }
         public SimpleCommand OpenClients { get; set; }
         public SimpleCommand OpenEditMyProfile { get; set; }
-        public SimpleCommand OpenAddGym { get; set; }
-        public ViewModelAdminMain(Admin admin)
+        public SimpleCommand Exit { get; set; }
+        public ViewModelAdminMain(Admin admin, Frame frame)
         {
             this.admin = admin;
             OpenTrainers = new SimpleCommand(() =>
             {
-                CurrentPage = new TrainersDataGridPage();
+                CurrentPage = new TrainersDataGridPage(new ViewModelTrainersList());
             });
-            OpenMySchedule = new SimpleCommand(() =>
+            OpenMyEvents = new SimpleCommand(() =>
             {
-
-            });
-            OpenTrainersSchedule = new SimpleCommand(() =>
-            {
-
-            });
-            OpenClients = new SimpleCommand(() =>
-            {
-
+                CurrentPage = new AdminEventsPage(new ViewModelAdminEventsPage(admin));
             });
             OpenEditMyProfile = new SimpleCommand(() =>
             {
                 CurrentPage = new AdminProfilePage(new ViewModelEditAdmin(admin));
             });
-            OpenAddGym = new SimpleCommand(() =>
+            Exit = new SimpleCommand(() =>
             {
-
+                frame.GoBack();
             });
         }
     }
