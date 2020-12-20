@@ -5,38 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportClubDB"
         mc:Ignorable="d"
-        Title="Сообщение" Height="200" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Сообщение" Height="200" Width="400" WindowStartupLocation="CenterScreen" MaxWidth="400" MaxHeight="200">
     <Grid Background="#FF3D4470">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Label Grid.ColumnSpan="3"
-               Content="Пожалуйста, выберите свою должность!" 
-               Foreground="#FFFF00E8" 
-               FontFamily="Unispace" 
-               FontSize="18" 
-               HorizontalAlignment="Center" 
-               VerticalAlignment="Center" 
-               BorderBrush="Black"/>
-        <CheckBox Content="Администратор"
-                  Grid.Row="1" 
-                  Foreground="White" 
-                  HorizontalAlignment="Center" 
-                  VerticalAlignment="Center" 
+        <Button Content="Админ"
+                  Style="{DynamicResource StartButtonStyle}" 
                   FontSize="16" 
-                  Background="White"
                   Click="IsAdmin"/>
-        <CheckBox Content="Тренер"
-                  Grid.Row="1"
-                  Grid.Column="2" 
-                  HorizontalAlignment="Center" 
-                  VerticalAlignment="Center" 
-                  Foreground="White" 
+        <Button Content="Тренер"
+                Grid.Column="1"
+                  Style="{DynamicResource StartButtonStyle}" 
                   FontSize="16"
                   Click="IsTrainer"/>
     </Grid>
