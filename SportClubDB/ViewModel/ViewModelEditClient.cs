@@ -10,13 +10,12 @@ namespace SportClubDB
     public class ViewModelEditClient : BaseNotifyClass
     {
         Client edit;
-        Phone editphone;
 
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Lastname { get; set; }
-        public int PhoneId { get; set; }
-        public string Number { get; set; }
+        public long PhoneId { get; set; }
+        public long Number { get; set; }
 
         public SimpleCommand Save { get; set; }
         public ViewModelEditClient(Client edit)
@@ -25,9 +24,9 @@ namespace SportClubDB
             Name = edit.Name;
             Surname = edit.Surname;
             Lastname = edit.Lastname;
-            Number = edit.IdPhone.ToString();
-            editphone = new Phone();
-            PhoneId = editphone.GetPhoneId(Number);
+            Number = edit.IdPhone;
+            Phone editphone = new Phone();
+            PhoneId = editphone.GetPhoneId(Number.ToString());
 
             Save = new SimpleCommand(() =>
             {
@@ -37,16 +36,16 @@ namespace SportClubDB
                     {
                         if (Lastname != null)
                         {
-                            if (Number != null)
+                            if (Number != 0)
                             {
                                 edit.Name = Name;
                                 edit.Surname = Surname;
                                 edit.Lastname = Lastname;
-                                editphone.ID = PhoneId;
-                                editphone.Number = Number;
-                                editphone.UpdatePhone();
                                 edit.IdPhone = PhoneId;
+                                editphone.ID = PhoneId;
+                                editphone.Number = Number.ToString();
                                 edit.UpdateClient();
+                                editphone.UpdatePhone();                                                                
                                 MessageBox.Show("Данные клиента были успешно обновлены");
                             }
                             else

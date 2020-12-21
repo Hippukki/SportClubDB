@@ -41,8 +41,6 @@ namespace SportClubDB
                 SelectedEvent.RemoveEvent();
                 Events.Remove(SelectedEvent);
             });
-
-
         }
 
     }

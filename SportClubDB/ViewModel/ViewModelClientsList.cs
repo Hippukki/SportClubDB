@@ -39,7 +39,9 @@ namespace SportClubDB
             Edit = new SimpleCommand(() =>
             {
                 new ClientEditWindow(new ViewModelEditClient(SelectedClient)).ShowDialog();
-                Converter();
+                Phone phone = new Phone();
+                phone.Number = phone.GetNumberById(SelectedClient.IdPhone);
+                SelectedClient.IdPhone = Convert.ToInt64(phone.Number);
             });
 
             Delete = new SimpleCommand(() =>
