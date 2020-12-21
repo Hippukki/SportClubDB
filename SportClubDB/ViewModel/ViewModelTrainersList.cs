@@ -93,26 +93,33 @@ namespace SportClubDB
             Remove = new SimpleCommand(() =>
             {
                 var phone = new Phone();
-                List<Phone> phones = new List<Phone>(phone.GetAllPhone());
-                foreach(Phone phone1 in phones)
-                {
-                    if(phone1.Number == SelectedTrainer.IdPhone.ToString())
-                    {
-                        phone1.RemovePhone();
-                    }
-                }
-                phones.Clear();
-                foreach(Client client in Clients)
+                List<Phone> phones = new List<Phone>(phone.GetAllPhone());                
+                foreach (Client client in Clients)
                 {
                     client.RemoveClient();
+                    foreach(Phone phone1 in phones)
+                    {
+                        if(phone1.ID == client.IdPhone)
+                        {
+                            phone1.RemovePhone();
+                        }
+                    }
                 }
                 Clients.Clear();
-                foreach(Event _event in Events)
+                foreach (Event _event in Events)
                 {
                     _event.RemoveEvent();
                 }
-                Events.Clear();
-                SelectedTrainer.RemoveTrainer();
+                Events.Clear();           
+                SelectedTrainer.RemoveTrainer();                
+                foreach(Phone phone2 in phones)
+                {
+                    if(phone2.Number == SelectedTrainer.IdPhone.ToString())
+                    {
+                        phone2.RemovePhone();
+                    }
+                }
+                phones.Clear();                    
                 Trainers.Remove(SelectedTrainer);
             });
         }

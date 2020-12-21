@@ -20,6 +20,7 @@ namespace SportClubDB
         public string Password { get => password; set { password = value; RaiseProperty(); } }
 
         public SimpleCommand LogIn { get; set; }
+        public SimpleCommand Clear { get; set; }
 
         public ViewModelUserLogIn( Frame frame)
         {
@@ -37,11 +38,20 @@ namespace SportClubDB
                             if(trainer.Login != Login && trainer.Password != Password)
                             {
                                 MessageBox.Show("Такого пользователя не существует!");
-                            }else
+                            }
+                            else
+                            {
                                 frame.Navigate(new TrainerMainPage(new ViewModelTrainerMain(trainer, frame)));
+                                Login = null;
+                                Password = null;
+                            }                                
                         }
                         else
+                        {
                             frame.Navigate(new AdminMainPage(new ViewModelAdminMain(admin, frame)));
+                            Login = null;
+                            Password = null;
+                        }                           
                     }
                     else
                         MessageBox.Show("Пожалуйста, введите пароль!");

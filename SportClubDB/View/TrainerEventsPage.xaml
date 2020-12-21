@@ -21,7 +21,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <DataGrid Grid.ColumnSpan="2" Grid.RowSpan="3" Background="#FF3D4470" AutoGenerateColumns="False" CanUserAddRows="False"
-                  ItemsSource="{Binding Events, UpdateSourceTrigger=PropertyChanged}" 
+                  ItemsSource="{Binding Events, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" 
                   SelectedItem="{Binding SelectedEvent, UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.ContextMenu>
                 <ContextMenu>
@@ -37,7 +37,8 @@
         <Label Content="Описание" Foreground="White" Grid.Column="2"/>
         <TextBox Style="{DynamicResource TextBoxStyle}" Grid.Row="1" Grid.RowSpan="2" Grid.Column="2" 
                      TextWrapping="Wrap"
-                     Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"/>
+                     Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+                 IsReadOnly="True"/>
         <Button Content="Добавить событие" 
                 Grid.Column="2" 
                 Grid.Row="3" 
